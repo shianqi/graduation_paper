@@ -33,10 +33,10 @@
 
 ## 主要参考文献
 
-[1] [A JavaScript library for building user interfaces.](https://reactjs.org/) 2017
+[1] [A JavaScript library for building user interfaces.](https://reactjs.org/) 2018
 
-[2] [Declarative routing for React](https://reacttraining.com/react-router/) 2017
+[2] [Declarative routing for React](https://reacttraining.com/react-router/) 2018
 
-[2] [Redux is a predictable state container for JavaScript apps.](http://redux.js.org/) 2017
+[2] [Redux is a predictable state container for JavaScript apps.](http://redux.js.org/) 2018
 
-[3] [webpack is a module bundler for modern JavaScript applications.](https://webpack.js.org/) 2017
+[3] [webpack is a module bundler for modern JavaScript applications.](https://webpack.js.org/) 2018
