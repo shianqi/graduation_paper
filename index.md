@@ -2,17 +2,30 @@
 内蒙古大学
 本科生毕业设计（论文）
 ---
+# 基于 React， Redux 和 Webpack 的云音乐播放器
 
-# 基于 React 的云音乐播放器
+## 论文摘要
 
-## React
+本文通过理论分析与已有文献进行对接，主要从前端组件化、工程化展开。包括使用 React 进行组件化开发，使用 Redux 管理 SPA 中的数据交互和运行状态，使用 Webpack 对项目进行打包优化三个方面进行叙述。并根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中 React、Redux 和 Webpack 各自的功能和使用方法。
 
-## Webpack
+## 论文关键词
 
-## Node.js
+React、 Redux、 Webpack、 SAP、 播放器、 前端
 
-## Babel
+## 引言
 
-## React-router
+随着互联网技术的飞速发展，
 
-## Redux
+## 正文
+
+### 理论分析
+
+#### React
+
+#### Webpack
+
+#### Redux
+
+### 案例分析
+
+## 结论

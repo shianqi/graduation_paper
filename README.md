@@ -40,3 +40,7 @@
 [2] [Redux is a predictable state container for JavaScript apps.](http://redux.js.org/) 2018
 
 [3] [webpack is a module bundler for modern JavaScript applications.](https://webpack.js.org/) 2018
+
+[4] [基于Dom Diff算法分析React刷新机制](http://www.cnki.com.cn/Article/CJFDTOTAL-DNZS201718033.htm)
+
+[5] [基于React的远程会诊系统设计](http://www.cnki.com.cn/Article/CJFDTOTAL-XXDL201722043.htm)
