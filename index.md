@@ -35,9 +35,6 @@ React 是一个用于构建用户界面的 JavaScript 库，起源于 Facebook �
 
 相对于直接对 DOM 进行操作，处理原生的 JavaScript 就非常快了，而且更加简单。
 
-<<<<<<< HEAD
-#### Webpack
-=======
 ```javascript
 var element = {
   tagName: 'div', // 节点标签名
@@ -71,7 +68,6 @@ var element = {
 * 把所记录的两棵树的差异应用到真实的 DOM 上，视图就更新了。
 
 Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存。可以类比 CPU 和内存，既然操作内存这么慢，我们可以在 CPU 上加入 Cache Memory。
->>>>>>> b4607321553477f25dbe21d543ce17d5f857753a
 
 #### Redux
 
