@@ -14,7 +14,14 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 
 ## 引言
 
-随着W3C规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 Jquery 面条式的开发，出现了许多用于简化客户端开发的框架，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。
+从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法，整个 IT 行业的概念和雏形逐渐形成。
+
+2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代正式来临。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
+
+随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，出现了许多用于简化客户端开发的框架，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。
+
+[](https://www.cnblogs.com/kidney/p/6079530.html)
+[](https://zhuanlan.zhihu.com/p/23858051)
 
 ## 正文
 
@@ -115,9 +122,9 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
 
 #### 开发环境
 
-首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。
+首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。之后下载 git 二进制安装包安装，用来对项目进行版本控制。
 
-之后下载 git 二进制安装包安装，用来对项目进行版本控制。
+
 
 ## 结论
 
