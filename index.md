@@ -14,11 +14,11 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 
 ## 引言
 
-从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法，整个 IT 行业的概念和雏形逐渐形成。
+从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法。与此同时，整个 IT 行业的概念和雏形逐渐形成。
 
-2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代正式来临。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
+2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代正式来临。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作 DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
 
-随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，出现了许多用于简化客户端开发的框架，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。
+但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。
 
 [](https://www.cnblogs.com/kidney/p/6079530.html)
 [](https://zhuanlan.zhihu.com/p/23858051)
@@ -120,11 +120,24 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
 
 #### 项目搭建
 
-#### 开发环境
-
 首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。之后下载 git 二进制安装包安装，用来对项目进行版本控制。
 
+首先初始化 npm 配置文件和 git 项目
 
+```bash
+npm init -y
+git init
+```
+
+然后安装必要的依赖，包括 react、webpack、babel、react-router、redux、eslint、stylelint 等。
+
+```bash
+npm install
+```
+
+因为我们的项目是运行在浏览器中，并且我们所采用的 JavaScript 是最新的 ES2017(ES8) 规范。目前的主流浏览器还没有实现，更不用说还要兼容 IE9/IE10。Babel 是一个广泛使用的转码器，可以将 ES6+ 的代码转换为浏览器可以识别的代码，并且可以根据需要适配的浏览器版本，选择合适的 polyfills，在兼容的前提下还保证了程序不会变的臃肿。并且可以通过添加 babel-preset-react 插件来识别 react 所依赖的 jsx 语法。通过 babel-preset-stage-x 插件，可以使用目前未被标准化，但被广泛认同的语法。
+
+代码风格和整洁程度也是衡量代码质量的重要指标，毕竟程序是写给人看的，顺便让计算机去执行。不同风格混杂在一起极大的影响代码的可读性与质量。所以，我们的项目也要加入静态检查和统一编码风格的检测。eslint 和 stylelint 就是分别是对 JavaScript 和 CSS 做静态检查和统一编码风格。并且都使用当下开源社区都认可的 standard 配置。
 
 ## 结论
 
