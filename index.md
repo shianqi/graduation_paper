@@ -163,9 +163,15 @@ npm install
 
 自动添加 hash 优化缓存：
 
-分离打包 css 和 js
+缓存是浏览器对静态资源加载的一种非常重要的优化方式，但有时我们更新了某个 css 文件，或者更新了某个图片。网页上并没有改变，这时候我们就要在 css 或者图片等资源后加上类似于这样 "base.css?v=0.3" 版本号，但是手动改版本号太过于繁琐，往往会因为程序员疏忽漏掉。而这种活交给 webpack 干就非常容易了。webpack 可以在生成每个文件的时候，将文件的名字替换成文件的 hash。所以只要两份代码完全相同，那么他们的名字也就相同，起到了缓存优化的作用。
 
-压缩混淆 js
+分离打包 css 和 js：
+
+webpack 把所有的资源都当成了一个模块，JavaScript、css、图片、字体等资源，都可以打包在一个 bundle.js 中。但是如果我们改变部分 js 代码，会导致整个应用的 hash 发生变化，所以 css 缓存也会失效。使用 extract-text-webpack-plugin 插件，我们可以将 css 和 js 分别打包，将业务逻辑从样式中抽离出来，从而更好的利用缓存。
+
+压缩混淆 js：
+
+通过 UglifyPlugin 可以将 webpack 编译后代码进行压缩，并且使用更短的变量名代替原来的变量名。使生产环境的代码变得更小，下载源文件所需要的时间大大缩短。还有一个好处就是别人更难破解你的代码，因为经过混淆后的代码十分晦涩难懂。
 
 ## 结论
 
@@ -181,6 +187,6 @@ npm install
 
 [3] [webpack is a module bundler for modern JavaScript applications.](https://webpack.js.org/) 2018
 
-[4] [基于Dom Diff算法分析React刷新机制](http://www.cnki.com.cn/Article/CJFDTOTAL-DNZS201718033.htm)
+[4] [The compiler for writing next generation JavaScript](http://babeljs.io/) 2018
 
-[5] [基于React的远程会诊系统设计](http://www.cnki.com.cn/Article/CJFDTOTAL-XXDL201722043.htm)
+[5] [基于Dom Diff算法分析React刷新机制](http://www.cnki.com.cn/Article/CJFDTOTAL-DNZS201718033.htm) 2017
