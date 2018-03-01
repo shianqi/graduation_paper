@@ -18,7 +18,13 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 
 2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代正式来临。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作 DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
 
-但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。
+但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。与此同时，在我们看不到的背后，浏览器第二次大战打响，V8 引擎开始大放异彩，Web 标准也在推动 ECMAScript5.0 进化着。node.js 发布了，意味着我们前端的领域已经拓展到服务端了。
+
+2015年，Facebook 在 React.js Conf 2015 大会上推出了基于 JavaScript 的开源框架 React Native。再一次将 React 推向了一个新的高度，learn once, write everywhere. 这是属于 React 的一年。与此同时，构建打包工具也在不停的迭代，Grunt 的辉煌不复存在，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来。
+
+2016年，Webpack 成为主流的前端构建工具。Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 框架也形成了三足鼎立之势（React，Vue，AngularJS）
+
+到如今，React 仍然是最主流的前端开发框架。虽然 Rollup 和 Parcel 也强势崛起，但 Webpack 仍是当下最主流的前端构建工具。本文就使用 React、Redux、Webpack 构建一个完善的 SPA 云音乐客户端，并从中窥视一下当今的前端主流解决方案。
 
 [](https://www.cnblogs.com/kidney/p/6079530.html)
 [](https://zhuanlan.zhihu.com/p/23858051)
