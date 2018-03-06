@@ -35,7 +35,7 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 
 #### React
 
-React 是一个用于构建用户界面的 JavaScript 库，起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
+React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
 
 1. **声明式设计** - React 采用声明范式，可以轻松描述应用。
 1. **高效** - 通过使用虚拟 DOM，最大限度的减少与 DOM 的交互。
@@ -143,7 +143,21 @@ npm install
 
 ##### babel 配置
 
-因为我们的项目是运行在浏览器中，并且我们所采用的 JavaScript 是最新的 ES2017(ES8) 规范。目前的主流浏览器还没有实现，更不用说还要兼容 IE9/IE10。Babel 是一个广泛使用的转码器，可以将 ES6+ 的代码转换为浏览器可以识别的代码，并且可以根据需要适配的浏览器版本，选择合适的 polyfills，在兼容的前提下还保证了程序不会变的臃肿。并且可以通过添加 babel-preset-react 插件来识别 react 所依赖的 jsx 语法。通过 babel-preset-stage-x 插件，可以使用目前未被标准化，但被广泛认同，未来可能会纳入标准的语法。
+因为我们所采用的 JavaScript 是最新的 ES2017(ES8) 规范，甚至目前主流的 Chrome 浏览器还没有完全实现该规范，更不用说还要兼容低版本的 IE 浏览器。而通过 Babel 我们就可以提前使用 ES6+ 的功能，Babel 是一个被广泛使用的转码器，可以将 ES6+ 的代码转换为浏览器可以识别的低版本 JavaScript 代码。并且可以根据需要适配的浏览器版本，选择合适的 polyfills，来兼容低版本的浏览器。并且因为使用 ES6 Modules，故可以将没有使用的代码不打包在最终生成的文件中，在兼容低版本浏览器的同时下还保证了程序不会变的臃肿。并且可以通过添加 babel-preset-react 插件来识别 react 所依赖的 jsx 语法。通过 babel-preset-stage-x 插件，可以使用目前未被标准化，但被广泛认同，未来可能会纳入标准的语法。
+
+例如如下的 ES6+ 语法：
+
+```javascript
+[1, 2, 3].map(n => n ** 2);
+```
+
+可以转换为：
+
+```javascript
+[1, 2, 3].map(function (n) {
+  return Math.pow(n, 2);
+});
+```
 
 ##### eslint & stylelint 配置
 
