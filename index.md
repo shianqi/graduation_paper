@@ -189,7 +189,14 @@ webpack 把所有的资源都当成了一个模块，JavaScript、css、图片�
 
 #### 自动化测试
 
-#### 跨浏览器测试
+一个自动化测试体系一般包括如下四个部分：
+
+* 测试运行器（Test Runner）：edp-test karma
+* 测试框架（Testing Framework）：jasmine mocha qunit Jest
+* 断言库（Assertion Library）：expect.js should chai
+* 覆盖率（Coverage Library）：istanbul
+
+本文所用到的是 karma + jasmine + istanbul。jasmine 是一个比较完善的测试框架，自带了丰富的断言函数，在编写测试用例的时候能够不用引用第三方断言库。
 
 #### 持续集成
 
@@ -208,11 +215,21 @@ install:
     npm install --registry http://registry.npmjs.org
 script:
     - npm run test-ci
+after_script:
+    - npm run coveralls
 ```
 
 我们需要告诉我们的测试代码是用什么语言（language）编写的、相应版本（version）、每次构建如何安装依赖包（install）、怎么执行测试程序（script）。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
 
+当完成测试时，会调用 after_script 中的 npm 脚本，进行代码覆盖率检查，代码覆盖率报告可以通过一系列工具可视化的将代码测试情况反馈给用户，让用户感知这个程序的测试覆盖情况。
+
 [](http://blog.csdn.net/zhangzq86/article/details/55657322)
+
+#### 跨浏览器集成测试
+
+我们的代码最终是运行在浏览器中，所以在各个浏览器端的兼容性也是非常重要的。很多项目会选择使用 PhantomJS/jsdom 当作浏览器环境来运行代码，虽然这样很方便，但是毕竟是模拟浏览器环境，无法完全代替真实的浏览器环境，并且各个浏览器的差异还是十分大的，甚至同一浏览器不同版本也存在巨大的差异。为此，我们需要 SauceLabs 这个平台帮助我们提供多重浏览器环境（包括 PC 端和移动端），并且帮助我们实现在多个浏览器中自动运行脚本。
+
+我需要做的就是安装 karma-sauce-launcher 这个 karma 插件，这个插件可以帮我们自动调起相应的浏览器。并且在 karma 的配置文件中注册 SauceLabs 服务并填写所需测试的各种浏览器版本。
 
 ## 结论
 
