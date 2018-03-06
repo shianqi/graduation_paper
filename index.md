@@ -195,6 +195,23 @@ webpack 把所有的资源都当成了一个模块，JavaScript、css、图片�
 
 持续集成是一种软件开发实践，即一个团队的开发成员每天都要集成他们的工作，并且每天至少集成一次，也就意味着每天可能会发生多次集成。每一次的集成都通过自动化的构建（包括编译，自动化测试，发布等）来验证，从而尽可能早的发现问题。
 
+GitHub 上比较主流的持续集成工具有 Travis CI 和 Circle CI。我们以 Travis CI 为例：
+
+在项目根目录下创建 Travis 的配置文件，并写下如下配置：
+
+```yaml
+language: node_js
+node_js:
+    - 6
+install:
+|
+    npm install --registry http://registry.npmjs.org
+script:
+    - npm run test-ci
+```
+
+我们需要告诉我们的测试代码是用什么语言（language）编写的、相应版本（version）、每次构建如何安装依赖包（install）、怎么执行测试程序（script）。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
+
 [](http://blog.csdn.net/zhangzq86/article/details/55657322)
 
 ## 结论
