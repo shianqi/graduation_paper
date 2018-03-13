@@ -191,8 +191,67 @@ npm install
 
 ##### 资源优化
 
-###### Icon 优化
+###### 图片优化
 
+最开始的时候，大部分图表都是用 png 格式的图片来实现的，但随着项目的变大，逐渐发现页面请求的资源中图片占了非常大的比重，所以为了优化网络请求就有了 Image Sprite，也就是雪碧图。具体做法是将多个图片合成一个图片，然后利用 css 中 background-position 定位显示不同的 icon 图标。这样做虽然解决了图片细碎的问题，但是却有一个很大的痛点，维护十分困难。每次新增一个图标，都需要改原始图片，而且一不小心还会影响前面已经定位好的图片，并且一旦修改雪碧图，前面图片的缓存就失效了，久而久之会越发的难以维护。
+
+之后又出现了使用字体库来实现页面图标的，常见的如广泛使用的 Font Awesome，使用起来非常的方便，但是有一个致命的缺点，那就是找起来太麻烦了，从 900 多个图标找出自己想要的需要很长的时间。并且如果要拓展也是很麻烦的。这时候，iconfont 就来了。这是阿里巴巴的图标库，并且可以将自己的图标上传供大家使用。
+
+iconfont 主要有三种使用方式，分别是 Unicode、Font-class、Symbol。它们的区别如下：
+
+|方式|兼容性|调整大小颜色|多色图标|使用格式|
+|---|---|---|---|---|
+|Unicode|ie6+|√|×|`<i class="iconfont">&#xe604;</i>`|
+|Font-class|ie6+|√|×|`<i class="iconfont icon-xxx"></i>`|
+|Symbol|ie9+|√|√|`<svg class="icon" aria-hidden="true"><use xlink:href="#icon-xxx"></use></svg>`|
+
+随着 ie 浏览器逐渐退出舞台，Symbol 使用形式慢慢成为主流的使用方法。
+
+Symbol 在内部使用的是 svg 图标，因此有如下优点：
+
+* 支持彩色图标，不受单色限制
+* 支持通过 css 来调整样式
+* 可以用 css 实现动画
+* svg 为矢量图，缩放不会失真
+* 相比于 img，整体更小
+* 可以内联到 html 中，减少 http 请求
+
+但是直接是使用 Symbol 方式还有一个致命的缺点，那就是现在所有的 svg 都是通过 iconfont 平台生成的 iconfont.js 引入的。每次增删图标只能整个 js 文件一起替换。其次也无法做到 **按需加载** 不能根据使用了哪些 svg 来动态加载。也不方便将自己做的 svg 图标整合到 iconfont 上，只能上传然后再重新生成并且下载，十分繁琐。
+
+这时候就需要我们自己制作 svg-sprite 了，为了工程化和自动化，我们使用 webpack 来处理整个制作 svg-sprite 的过程，这时候就要用到 svg-sprite-loader 这个 webpack loader 了。结合我们的项目，我们将 src/icons 目录下的所有 svg 图标都交给 svg-sprite-loader 这个 loader 去处理，并且其他目录下的图标不受此影响。
+
+```javascript
+const svgPath = path.join(__dirname, 'src/icons')
+
+config.loader('url-loader', {
+  exclude: [svgPath]
+})
+config.loader('svg-sprite-loader', {
+  test: /\.svg$/,
+  loader: 'svg-sprite-loader?{"symbolId": "icon-[name]"}',
+  include: [svgPath]
+})
+```
+
+配合 webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，就会自动生成 svg symbol 了。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
+
+```html
+<Icon type="caret-down" />
+```
+
+之后我们还要使用 svgo 来去掉 svg 里无用的信息，来进一步优化 svg 的大小，我们先看一下没有经过优化的 svg 是什么样的：
+
+```text
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1513157529483" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7167" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M198.144 204.8l678.4 0c64 0 96.256 30.208 96.256 91.648l0 431.104c0 60.928-32.256 91.648-96.256 91.648l-678.4 0c-64 0-96.256-30.72-96.256-91.648l0-431.104c0-61.44 32.256-91.648 96.256-91.648zM537.088 645.12l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632-291.328-197.632c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z" p-id="7168"></path></svg>
+```
+
+经过 svgo 优化后，我们的图标变成了这样：
+
+```text
+<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><style/></defs><path d="M198.144 204.8h678.4c64 0 96.256 30.208 96.256 91.648v431.104c0 60.928-32.256 91.648-96.256 91.648h-678.4c-64 0-96.256-30.72-96.256-91.648V296.448c0-61.44 32.256-91.648 96.256-91.648zm338.944 440.32l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632L245.76 298.496c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z"/></svg>
+```
+
+可以明显看出整个文件变小了很多，并且对显示没有任何影响。经过这一系列的优化，我们终于可以优雅的使用 svg。
 [](https://segmentfault.com/a/1190000012213278)
 
 ##### webpack 性能优化
