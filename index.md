@@ -50,27 +50,29 @@ React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Face
 
 相对于直接对 DOM 进行操作，处理原生的 JavaScript 就非常快了，而且更加简单。
 
-```javascript
+<!-- ```javascript
 var element = {
   tagName: 'div', // 节点标签名
   props: {        // DOM的属性，用一个对象存储键值对
-    id: 'article'
+    id: 'article',
   },
   children: [     // 该节点的子节点
     {tagName: 'h1', props: {class: 'title'}, children: ["Title"]},
     {tagName: 'p', props: {class: 'text'}, children: ["Text"]},
-  ]
+  ],
 }
-```
+``` -->
+![code1](./img/code1-nb.png)
 
 上面对应的HTML写法是：
 
-```html
+<!-- ```html
 <article id='article'>
   <h1 class='title'>Title</h1>
   <p class='text'>Text</p>
 </article>
-```
+``` -->
+![code2](./img/code2-nb.png)
 
 既然原来的 DOM 树可以用 JavaScript 对象表示，那么反过来也可以用这个 JavaScript 对象来还原 DOM 树。
 
@@ -167,17 +169,19 @@ npm install
 
 例如如下的 ES6+ 语法：
 
-```javascript
+<!-- ```javascript
 [1, 2, 3].map(n => n ** 2);
-```
+``` -->
+![code3](./img/code3-nb.png)
 
 可以转换为：
 
-```javascript
+<!-- ```javascript
 [1, 2, 3].map(function (n) {
   return Math.pow(n, 2);
 });
-```
+``` -->
+![code4](./img/code4-nb.png)
 
 ##### eslint & stylelint 配置
 
@@ -220,18 +224,19 @@ Symbol 在内部使用的是 svg 图标，因此有如下优点：
 
 这时候就需要我们自己制作 svg-sprite 了，为了工程化和自动化，我们使用 Webpack 来处理整个制作 svg-sprite 的过程，这时候就要用到 svg-sprite-loader 这个 Webpack loader 了。结合我们的项目，我们将 src/icons 目录下的所有 svg 图标都交给 svg-sprite-loader 这个 loader 去处理，并且其他目录下的图标不受此影响。
 
-```javascript
+<!-- ```javascript
 const svgPath = path.join(__dirname, 'src/icons')
 
 config.loader('url-loader', {
-  exclude: [svgPath]
+  exclude: [svgPath],
 })
 config.loader('svg-sprite-loader', {
   test: /\.svg$/,
   loader: 'svg-sprite-loader?{"symbolId": "icon-[name]"}',
-  include: [svgPath]
+  include: [svgPath],
 })
-```
+``` -->
+![code5](./img/code5-nb.png)
 
 配合 Webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，就会自动生成 svg symbol 了。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
 
@@ -347,3 +352,5 @@ after_script:
 [4] [The compiler for writing next generation JavaScript](http://babeljs.io/) 2018
 
 [5] [基于Dom Diff算法分析React刷新机制](http://www.cnki.com.cn/Article/CJFDTOTAL-DNZS201718033.htm) 2017
+
+<!-- https://carbon.now.sh/?bg=rgba(255,255,255,0)&t=base16-dark&l=htmlmixed&ds=false&wc=true&wa=false&pv=0px&ph=0px&ln=true&code= -->
