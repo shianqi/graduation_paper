@@ -16,7 +16,7 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 
 从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法。与此同时，整个 IT 行业的概念和雏形逐渐形成。
 
-2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代正式来临。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作 DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
+2004年10月 O'Reilly Media、Battelle 和 MediaLive 引导了第一个 Web2.0 大会，Web2.0 时代拉开了序幕。Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布。jQuery 主要用于操作 DOM，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。大量基于 jQuery 的插件构成了一个庞大的生态系统，更加稳固了 jQuery 的地位。
 
 但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。与此同时，在我们看不到的背后，浏览器第二次大战打响，V8 引擎开始大放异彩，Web 标准也在推动 ECMAScript5.0 进化着。node.js 发布了，意味着我们前端的领域已经拓展到服务端了。
 
@@ -38,9 +38,9 @@ React、 Redux、 Webpack、 SAP、 播放器、 前端
 React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
 
 1. **声明式设计** - React 采用声明范式，可以轻松描述应用。
-1. **高效** - 通过使用虚拟 DOM，最大限度的减少与 DOM 的交互。
+1. **高效** - 通过使用虚拟 DOM，能够减少不必要的 DOM 的交互，从而提高性能。
 1. **灵活** - 可以与已知的库和框架很好的配合。
-1. **组件化** - 天生的组件化，可以使代码复用变得十分容易。能够十分容易的构建大型项目。
+1. **组件化** - 天生的组件化思维，用过组件的方式使代码复用变得十分容易。能够十分容易的构建大型项目。
 1. **单向响应的数据流** 数据流动方向可以跟踪，流动单一，利于追踪问题。
 
 我们知道，DOM 操作是非常耗时的，如果我们把一个简单的 div 元素属性都打印出来，你会看到如下的结果。
@@ -150,18 +150,7 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
 
 首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。之后下载 git 二进制安装包安装，用来对项目进行版本控制。
 
-首先初始化 npm 配置文件和 git 项目
-
-```bash
-npm init -y
-git init
-```
-
-然后安装必要的依赖，包括 React、webpack、babel、react-router、Redux、eslint、stylelint 等。
-
-```bash
-npm install
-```
+首先初始化 npm 配置文件和 git 项目，然后安装必要的依赖，包括 React、webpack、babel、react-router、Redux、eslint、stylelint 等。
 
 ##### babel 配置
 
@@ -341,6 +330,13 @@ after_script:
 
 ## 结论
 
+本文我们讨论了使用 React 进行组件化开发，使用 Redux 管理 SPA 中的数据交互和运行状态，使用 Webpack 对项目进行打包优化。并根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中 React、Redux 和 Webpack 各自的功能和使用方法。经过数个月的编码测试，目前我们的项目也最终在 github 上开源。
+
+项目地址：[https://github.com/shianqi/NetEase-Cloud-Music-Web](https://github.com/shianqi/NetEase-Cloud-Music-Web)
+
+在线体验：[https://shianqi.github.io/NetEase-Cloud-Music-Web](https://shianqi.github.io/NetEase-Cloud-Music-Web)
+
+项目截图：
 ![nusic](./img/music.png)
 
 ## 主要参考文献
