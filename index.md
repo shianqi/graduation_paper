@@ -1,18 +1,43 @@
 ---
 内蒙古大学
-本科生毕业设计（论文）
+本科毕业论文
 ---
-# 基于 React， Redux 和 Webpack 的云音乐播放器
+# 基于 React， Redux 和 Webpack 的前端优化方案
 
-## 论文摘要
+学院、系 计算机学院、软件工程系
+专业名称 网络工程
+年级 2014级
+学生姓名 史安琪
+导师姓名 邢熠
 
-本文通过理论分析与已有文献进行对接，从前端组件化、工程化展开。包括使用 React 进行组件化开发，使用 Redux 管理 SPA 中的数据交互和运行状态，使用 Webpack 对项目进行打包优化。并根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中 React、Redux 和 Webpack 各自的功能和使用方法。
+2018年4月2日
+
+## 摘要
+
+随着互联网技术的极速发展，人们的生活越来越离不开互联网，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，利用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的需要频繁交换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
 
 ## 论文关键词
 
-React、 Redux、 Webpack、 SAP、 播放器、 前端
+React、Redux、Webpack、前端开发、网站优化
 
-## 引言
+Front-end optimization solution based on React, Redux and Webpack
+
+## ABSTRACT
+
+Author:Shi anqi
+Tutor:Xing yi
+
+With the rapid development of Internet technology, people's lives are increasingly inseparable from the Internet, followed by the ever-increasing demand from the public for user experience. The development of front-end development technology can greatly simplify the development of developers, thereby reducing the developer's development costs and the overall quality of the site. This article mainly discusses the application in the front-end development field, uses the deep integration of React, Redux, and Webpack to optimize the performance and quality of web pages, and greatly improves the responsiveness and compatibility of the web site under a smaller package size. The thesis mainly includes the use of React for component development, the use of Redux to manage complex single-page Web applications (SPA) that require frequent data exchange and running state, and use Webpack to package and optimize the project. Based on the above theory, a SPA cloud music client was built to study the overall performance of the website through React, Redux, and Webpack in specific projects.
+
+Keywords: React, Redux, Webpack, Front End Development, Website Optimization
+
+## 绪论
+
+### 选题背景及研究意义
+
+...
+
+### 论文的主要内容
 
 从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法。与此同时，整个 IT 行业的概念和雏形逐渐形成。
 
