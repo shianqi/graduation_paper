@@ -14,7 +14,7 @@
 
 ## 摘要
 
-随着互联网技术的极速发展，人们的生活越来越离不开互联网，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，利用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的需要频繁交换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
+随着互联网技术的极速发展，人们的生活越来越离不开互联网，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，利用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
 
 ## 论文关键词
 
@@ -35,9 +35,7 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ### 选题背景及研究意义
 
-...
-
-### 论文的主要内容
+随着互联网的快速发展，人们对互联网的依赖也变得越来强。不论是在科研机构，商业领域还是个人生活，我们无时无刻不在直接或者间接的与计算机进行交互。然而随着业务需求越来越复杂，用户需要的界面也越来越复杂，数据的交互也越来越繁杂。编写传统的 HTML、CSS、JavaScript 页面的复杂度越来越大，维护成本也越来越高。
 
 从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法。与此同时，整个 IT 行业的概念和雏形逐渐形成。
 
@@ -45,14 +43,16 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，Vue，Avalon，Knockout，React 等等各种各样的框架。与此同时，在我们看不到的背后，浏览器第二次大战打响，V8 引擎开始大放异彩，Web 标准也在推动 ECMAScript5.0 进化着。node.js 发布了，意味着我们前端的领域已经拓展到服务端了。
 
-2015年，Facebook 在 React.js Conf 2015 大会上推出了基于 JavaScript 的开源框架 React Native。再一次将 React 推向了一个新的高度，learn once, write everywhere. 这是属于 React 的一年。与此同时，构建打包工具也在不停的迭代，Grunt 的辉煌不复存在，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来。
+2015年，Facebook 在 React.js Conf 2015 大会上推出了基于 JavaScript 的开源框架 React Native。再一次将 React 推向了一个新的高度。
 
-2016年，Webpack 成为主流的前端构建工具。Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 框架也形成了三足鼎立之势（React，Vue，AngularJS）
+与此同时，构建打包工具也在不停的迭代，Grunt 的辉煌不复存在，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来。2016年，Webpack 成为主流的前端构建工具。Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 框架也形成了三足鼎立之势（React，Vue，AngularJS）
 
-到如今，React 仍然是最主流的前端开发框架。虽然 Rollup 和 Parcel 也强势崛起，但 Webpack 仍是当下最主流的前端构建工具。本文就使用 React、Redux、Webpack 构建一个完善的 SPA 云音乐客户端，并从中窥视一下当今的前端主流解决方案。
 
-[](https://www.cnblogs.com/kidney/p/6079530.html)
-[](https://zhuanlan.zhihu.com/p/23858051)
+到目前发展来看，前端开发技术的发展时间相对较短，但是发展速度却非常快，并且技术的迭代也十分迅速。这和当前互联网的极速发展有着密不可分的关系，一个流畅，稳定，利于操作前端界面往往能够给用户带来非常良好的使用体验。所以
+
+### 论文的主要内容
+
+因此本文希望通过对当前主流技术框架的深入研究和整合，并在此基础上进行优化。从而提出一套基于当前前端主流技术框架，并再此基础上进行优化整合的一整套解决优化方案。
 
 ## 正文
 
