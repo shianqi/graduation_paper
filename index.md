@@ -61,9 +61,7 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ## 第二章：相关技术分析
 
-### 整体说明
-
-<!-- TODO: -->
+本文主要涉及到的技术为 React、Redux 和 Webpack。React 主要用于构建 UI；Redux是一个应用数据流框架，用来保存和管理整个应用的状态；而 Webpack 是一个模块打包工具，它用来分析项目结构，找到 JavaScript 模块以及其它的拓展语言（Scss，Jsx等），并将其转换和打包为合适的格式供浏览器使用。
 
 ### React
 
