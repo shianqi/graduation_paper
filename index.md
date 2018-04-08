@@ -401,3 +401,9 @@ after_script:
 <!-- https://carbon.now.sh/?bg=rgba(255,255,255,0)&t=base16-dark&l=htmlmixed&ds=false&wc=true&wa=false&pv=0px&ph=0px&ln=true&code= -->
 
 <!-- https://carbon.now.sh/?bg=rgba(255,255,255,0)&t=base16-dark&l=javascript&ds=true&wc=true&wa=false&pv=19px&ph=15px&ln=true&code= -->
+
+<style>
+.markdown-body .highlight pre, .markdown-body pre {
+    white-space: normal;
+}
+</style>
