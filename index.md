@@ -402,8 +402,13 @@ after_script:
 
 <!-- https://carbon.now.sh/?bg=rgba(255,255,255,0)&t=base16-dark&l=javascript&ds=true&wc=true&wa=false&pv=19px&ph=15px&ln=true&code= -->
 
-<style>
-.markdown-body .highlight pre, .markdown-body pre {
-    white-space: normal;
+```css
+.markdown-body img {
+  display: block;
+  margin: 0 auto;
 }
-</style>
+
+.markdown-body .highlight pre, .markdown-body pre {
+  white-space: pre-wrap;
+}
+```
