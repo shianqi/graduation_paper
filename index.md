@@ -94,6 +94,7 @@ var element = {
   ],
 }
 ```
+
 <!-- ![code1](./img/code1-nb.png) -->
 
 上面对应的HTML写法是：
@@ -104,6 +105,7 @@ var element = {
   <p class='text'>Text</p>
 </article>
 ```
+
 <!-- ![code2](./img/code2-nb.png) -->
 
 既然原来的 DOM 树可以用 JavaScript 对象表示，那么反过来也可以用这个 JavaScript 对象来还原 DOM 树。
@@ -193,6 +195,7 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
 ```javascript
 [1, 2, 3].map(n => n ** 2);
 ```
+
 <!-- ![code3](./img/code3-nb.png) -->
 
 可以转换为：
@@ -202,6 +205,7 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
   return Math.pow(n, 2);
 });
 ```
+
 <!-- ![code4](./img/code4-nb.png) -->
 
 ##### eslint & stylelint 配置
@@ -259,6 +263,7 @@ config.loader('svg-sprite-loader', {
   include: [svgPath],
 })
 ```
+
 <!-- ![code5](./img/code5-nb.png) -->
 
 配合 Webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，就会自动生成 svg symbol 了。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
@@ -266,20 +271,23 @@ config.loader('svg-sprite-loader', {
 ```html
 <Icon type="caret-down" />
 ```
+
 <!-- ![code6](./img/code6-nb.png) -->
 
 之后我们还要使用 svgo 来去掉 svg 里无用的信息，来进一步优化 svg 的大小，我们先看一下没有经过优化的 svg 是什么样的：
 
-```xml
+```text
 <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1513157529483" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7167" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M198.144 204.8l678.4 0c64 0 96.256 30.208 96.256 91.648l0 431.104c0 60.928-32.256 91.648-96.256 91.648l-678.4 0c-64 0-96.256-30.72-96.256-91.648l0-431.104c0-61.44 32.256-91.648 96.256-91.648zM537.088 645.12l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632-291.328-197.632c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z" p-id="7168"></path></svg>
 ```
+
 <!-- ![code7](./img/code7-nb.png) -->
 
 经过 svgo 优化后，我们的图标变成了这样：
 
-```xml
+```text
 <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><style/></defs><path d="M198.144 204.8h678.4c64 0 96.256 30.208 96.256 91.648v431.104c0 60.928-32.256 91.648-96.256 91.648h-678.4c-64 0-96.256-30.72-96.256-91.648V296.448c0-61.44 32.256-91.648 96.256-91.648zm338.944 440.32l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632L245.76 298.496c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z"/></svg>
 ```
+
 <!-- ![code8](./img/code8-nb.png) -->
 
 可以明显看出整个文件变小了很多，并且对显示没有任何影响。经过这一系列的优化，我们终于可以优雅的使用 svg。
@@ -348,6 +356,7 @@ script:
 after_script:
     - npm run coveralls
 ```
+
 <!-- ![code](./img/code9-nb.png) -->
 
 我们需要告诉我们的测试代码是用什么语言（language）编写的、相应版本（version）、每次构建如何安装依赖包（install）、怎么执行测试程序（script）。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
