@@ -51,15 +51,19 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ### 论文的主要内容
 
-本文主要研究网站前端优化方案，通过 React、Redux 和 Webpack 框架的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文包括六个部分，每一部分的内容组织如下：
+本文主要研究网站前端优化方案，通过 React、Redux 和 Webpack 框架的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文包括五个部分，每一部分的内容组织如下：
 
 * 第一章是绪论，主要介绍了论文的选题背景以及研究意义，包括前端技术的发展现状以及发展历程，并介绍了全文的内容安排。
 * 第二章是对本文相关概念的进行阐述，并且介绍了本文主要涉及技术的介绍和分析。
-* 第三章是全文的重要部分，分为三小节，分别阐述了系统的整体架构，对系统开发和生产环境下的优化方法，以及对系统进行自动化测试和持续集成。
+* 第三章是全文的重要部分，分为三小节，分别阐述了系统的设计于实现，对系统开发和生产环境下的优化方法，以及对系统进行自动化测试和持续集成。
 * 第四章是对第三章提出的方法的性能分析，主要对网站的各项性能指标进行对比，来评估此优化方案所带来的性能提升。
-* 最后一部分是论文的结论，指出文章的研究结果和研究的不足之处。
+* 第五章是论文的结论，指出文章的研究结果和研究的不足之处。
 
 ## 第二章：相关技术分析
+
+### 整体说明
+
+<!-- TODO: -->
 
 ### React
 
@@ -78,7 +82,7 @@ React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Face
 
 相对于直接对 DOM 进行操作，处理原生的 JavaScript 就非常快了，而且更加简单。
 
-<!-- ```javascript
+```javascript
 var element = {
   tagName: 'div', // 节点标签名
   props: {        // DOM的属性，用一个对象存储键值对
@@ -89,18 +93,18 @@ var element = {
     {tagName: 'p', props: {class: 'text'}, children: ["Text"]},
   ],
 }
-``` -->
-![code1](./img/code1-nb.png)
+```
+<!-- ![code1](./img/code1-nb.png) -->
 
 上面对应的HTML写法是：
 
-<!-- ```html
+```html
 <article id='article'>
   <h1 class='title'>Title</h1>
   <p class='text'>Text</p>
 </article>
-``` -->
-![code2](./img/code2-nb.png)
+```
+<!-- ![code2](./img/code2-nb.png) -->
 
 既然原来的 DOM 树可以用 JavaScript 对象表示，那么反过来也可以用这个 JavaScript 对象来还原 DOM 树。
 
@@ -186,19 +190,19 @@ Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、
 
 例如如下的 ES6+ 语法：
 
-<!-- ```javascript
+```javascript
 [1, 2, 3].map(n => n ** 2);
-``` -->
-![code3](./img/code3-nb.png)
+```
+<!-- ![code3](./img/code3-nb.png) -->
 
 可以转换为：
 
-<!-- ```javascript
+```javascript
 [1, 2, 3].map(function (n) {
   return Math.pow(n, 2);
 });
-``` -->
-![code4](./img/code4-nb.png)
+```
+<!-- ![code4](./img/code4-nb.png) -->
 
 ##### eslint & stylelint 配置
 
@@ -243,7 +247,7 @@ Symbol 在内部使用的是 svg 图标，因此有如下优点：
 
 这时候就需要我们自己制作 svg-sprite 了，为了工程化和自动化，我们使用 Webpack 来处理整个制作 svg-sprite 的过程，这时候就要用到 svg-sprite-loader 这个 Webpack loader 了。结合我们的项目，我们将 src/icons 目录下的所有 svg 图标都交给 svg-sprite-loader 这个 loader 去处理，并且其他目录下的图标不受此影响。
 
-<!-- ```javascript
+```javascript
 const svgPath = path.join(__dirname, 'src/icons')
 
 config.loader('url-loader', {
@@ -254,29 +258,29 @@ config.loader('svg-sprite-loader', {
   loader: 'svg-sprite-loader?{"symbolId": "icon-[name]"}',
   include: [svgPath],
 })
-``` -->
-![code5](./img/code5-nb.png)
+```
+<!-- ![code5](./img/code5-nb.png) -->
 
 配合 Webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，就会自动生成 svg symbol 了。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
 
-<!-- ```html
+```html
 <Icon type="caret-down" />
-``` -->
-![code6](./img/code6-nb.png)
+```
+<!-- ![code6](./img/code6-nb.png) -->
 
 之后我们还要使用 svgo 来去掉 svg 里无用的信息，来进一步优化 svg 的大小，我们先看一下没有经过优化的 svg 是什么样的：
 
-<!-- ```text
+```xml
 <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1513157529483" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7167" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M198.144 204.8l678.4 0c64 0 96.256 30.208 96.256 91.648l0 431.104c0 60.928-32.256 91.648-96.256 91.648l-678.4 0c-64 0-96.256-30.72-96.256-91.648l0-431.104c0-61.44 32.256-91.648 96.256-91.648zM537.088 645.12l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632-291.328-197.632c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z" p-id="7168"></path></svg>
-``` -->
-![code7](./img/code7-nb.png)
+```
+<!-- ![code7](./img/code7-nb.png) -->
 
 经过 svgo 优化后，我们的图标变成了这样：
 
-<!-- ```text
+```xml
 <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><style/></defs><path d="M198.144 204.8h678.4c64 0 96.256 30.208 96.256 91.648v431.104c0 60.928-32.256 91.648-96.256 91.648h-678.4c-64 0-96.256-30.72-96.256-91.648V296.448c0-61.44 32.256-91.648 96.256-91.648zm338.944 440.32l345.088-283.136c12.288-10.24 22.016-33.792 6.656-54.784-14.848-20.992-41.984-21.504-59.904-8.704l-291.84 197.632L245.76 298.496c-17.92-12.8-45.056-12.288-59.904 8.704-15.36 20.992-5.632 44.544 6.656 54.784z"/></svg>
-``` -->
-![code8](./img/code8-nb.png)
+```
+<!-- ![code8](./img/code8-nb.png) -->
 
 可以明显看出整个文件变小了很多，并且对显示没有任何影响。经过这一系列的优化，我们终于可以优雅的使用 svg。
 [](https://segmentfault.com/a/1190000012213278)
@@ -332,7 +336,7 @@ GitHub 上比较主流的持续集成工具有 Travis CI 和 Circle CI。我们�
 
 在项目根目录下创建 Travis 的配置文件，并写下如下配置：
 
-<!-- ```yaml
+```yaml
 language: node_js
 node_js:
     - 6
@@ -343,8 +347,8 @@ script:
     - npm run test-ci
 after_script:
     - npm run coveralls
-``` -->
-![code](./img/code9-nb.png)
+```
+<!-- ![code](./img/code9-nb.png) -->
 
 我们需要告诉我们的测试代码是用什么语言（language）编写的、相应版本（version）、每次构建如何安装依赖包（install）、怎么执行测试程序（script）。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
 
