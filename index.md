@@ -177,9 +177,7 @@ Webpack 可以看作一个模块打包器，它要做的就是分析你的项目
 
 #### 项目搭建
 
-首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。之后下载 git 二进制安装包安装，用来对项目进行版本控制。
-
-首先初始化 npm 配置文件和 git 项目，然后安装必要的依赖，包括 React、webpack、babel、react-router、Redux、eslint、stylelint 等。
+首先安装 node.js 环境和 npm，我这里采用的版本是 node.js v8.9.0 和 npm v5.5.1。之后下载 git 二进制安装包安装，用来对项目进行版本控制。之后初始化 npm 配置文件和 git 项目，然后安装必要的依赖，包括 React、webpack、babel、react-router、Redux、eslint、stylelint 等。
 
 ##### babel 配置
 
