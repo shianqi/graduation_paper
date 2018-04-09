@@ -37,7 +37,7 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 本文主要研究网站前端优化方案，通过 React、Redux 和 Webpack 框架的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文包括五个部分，每一部分的内容组织如下：
 
-* 第一章是绪论，主要介绍了论文的选题背景以及研究意义，包括前端技术的发展现状以及发展历程，并介绍了全文的内容安排。
+* 第一章是绪论，主要介绍了论文的选题背景以及研究意义，包括前端技术的发展现状以及发展历程，最后介绍了全文的内容安排。
 * 第二章是对本文相关概念的进行阐述，并且介绍了本文主要涉及技术的介绍和分析。
 * 第三章是全文的重要部分，分为三小节，分别阐述了系统的设计于实现，对系统开发和生产环境下的优化方法，以及对系统进行自动化测试和持续集成。
 * 第四章是对第三章提出的方法的性能分析，主要对网站的各项性能指标进行对比，来评估此优化方案所带来的性能提升。
@@ -49,7 +49,7 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ### React
 
-React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
+React 是一个用于构建用户界面的 JavaScript 库，起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源，一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
 
 1. **声明式设计** - React 采用声明范式，可以轻松描述应用。
 1. **高效** - 通过使用虚拟 DOM，能够减少不必要的 DOM 的交互，从而提高性能。
@@ -57,12 +57,25 @@ React 是一个用于构建用户界面的 JavaScript 库，最初起源于 Face
 1. **组件化** - 天生的组件化思维，用过组件的方式使代码复用变得十分容易。能够十分容易的构建大型项目。
 1. **单向响应的数据流** 数据流动方向可以跟踪，流动单一，利于追踪问题。
 
-我们知道，DOM 操作是非常耗时的，如果我们把一个简单的 div 元素属性都打印出来，你会看到如下的结果。
+我们知道，DOM 操作是非常耗时的，如果我们把一个简单的 div 元素属性都打印出来，你会看到如下的结果，因为比较长，这里只粘贴了约 1/5。
 
-而这只是第一层，真正的 DOM 元素是非常庞大的。而且操作的时候要非常的小心，可能一个轻微的触碰，就会导致整个页面重排，这就是影响性能的罪魁祸首。
+```javascript
+const arr = []
+const div = document.createElement('div')
+for (var key in div) {
+  arr.push(`[${key}]:${div[key]}`)
+}
+console.log(arr.join(' '))
+```
+
+```text
+[align]: [title]: [lang]: [translate]:true [dir]: [dataset]:[object DOMStringMap] [hidden]:false [tabIndex]:-1 [accessKey]: [draggable]:false [spellcheck]:true [contentEditable]:inherit [isContentEditable]:false [offsetParent]:null [offsetTop]:0 [offsetLeft]:0 [offsetWidth]:0 [offsetHeight]:0 [style]:[object CSSStyleDeclaration] [innerText]: [outerText]: [onabort]:null [onblur]:null [oncancel]:null [oncanplay]:null [oncanplaythrough]:null [onchange]:null [onclick]:null [onclose]:null [oncontextmenu]:null [oncuechange]:null [ondblclick]:null [ondrag]:null [ondragend]:null [ondragenter]:null [ondragleave]:null [ondragover]:null [ondragstart]:null [ondrop]:null [ondurationchange]:null [onemptied]:null [onended]:null [onerror]:null [onfocus]:null [oninput]:null [oninvalid]:null [onkeydown]:null [onkeypress]:null [onkeyup]:null [onload]:null [onloadeddata]:null [onloadedmetadata]:null [onloadstart]:null [onmousedown]:null [onmouseenter]:null [onmouseleave]:null [onmousemove]:null [onmouseout]:null [onmouseover]:null [onmouseup]:null [onmousewheel]:null [onpause]:null [onplay]:null [onplaying]:null [onprogress]:null [onratechange]:null [onreset]:null [onresize]:null [onscroll]:null [onseeked]:null [onseeking]:null [onselect]:null [onstalled]:null [onsubmit]:null [onsuspend]:null [ontimeupdate]....
+```
+
+然而这只是第一层，真正的 DOM 元素是非常庞大的。而且操作的时候要非常的小心，可能一个轻微的触碰，就会导致整个页面重排，这就是影响性能的罪魁祸首。
 [](https://github.com/livoras/blog/issues/13)
 
-相对于直接对 DOM 进行操作，处理原生的 JavaScript 就非常快了，而且更加简单。
+相对于直接对 DOM 进行操作，对原生的 JavaScript 操作就非常快了，而且更加简单，所以我们可以一个简单的 html 用 JavaScript 表示成下面这样：
 
 ```javascript
 var element = {
@@ -82,10 +95,10 @@ var element = {
 上面对应的HTML写法是：
 
 ```html
-<article id='article'>
+<div id='article'>
   <h1 class='title'>Title</h1>
   <p class='text'>Text</p>
-</article>
+</div>
 ```
 
 <!-- ![code2](./img/code2-nb.png) -->
@@ -104,7 +117,7 @@ Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存。可
 
 ### Redux
 
-React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用。因此，我们要结合其他框架，才能搭建一个完整的 web 应用。2014年，Facebook 发布了 Flux 就提供了一种架构思想。2015年 Redux 出现，将 Flux 和 函数式编程 结合在一起，成为了一时前端框架的热门。Redux 的出现就是为了更复杂的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
+React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用。2014年，Facebook 发布了 Flux 就提供了一种架构思想。2015年 Redux 出现，将 Flux 和函数式编程结合在一起，成为了一时前端框架的热门。Redux 的出现就是为了解决复杂场景下的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
 
 为了便于管理和跟踪状态，在 React 中数据是单向流动的，也就是数据总是从父组件传递到子组件的。如果子组件想更新父组件的状态，只能通过父组件给子组件暴露的方法。所以数据由始至终都是从父组件流向子组件，我们称为单向数据流。
 
@@ -114,7 +127,7 @@ Redux 借鉴了设计模式中的命令模式（Command Pattern），将一个�
 
 ![Command Pattern](./img/command.png)
 
-理解了命令模式后，理解 Redux 就容易多了，但我们首先要理解这四个概念： store、action、reducer、dispatch
+理解了命令模式，理解 Redux 就容易多了，但我们首先要理解这四个概念： store、action、reducer、dispatch
 
 ![redux](./img/redux.png)
 
@@ -134,9 +147,9 @@ Redux 借鉴了设计模式中的命令模式（Command Pattern），将一个�
 * Scss，Less 等 CSS 预处理语言
 * Babel 通过语法转换器支持最新版本的 JavaScript。 允许你立刻使用新语法，无需等待浏览器支持。
 
-Webpack 可以看作一个模块打包器，它要做的就是分析你的项目解构，找到项目所依赖的各种模块，如 JavaScript 模块，图片，字体文件，以及其他浏览器不能直接运行的拓展语言（Scss，TypeScript等），并经过一系列处理优化，将其转换打包为合适的格式供浏览器使用。
+Webpack 可以看作一个模块打包器，它要做的就是分析你的项目结构，找到项目所依赖的各种模块，如 JavaScript 模块，图片，字体文件，以及其他浏览器不能直接运行的拓展语言（Scss，Jsx等），并经过一系列处理优化，将其转换打包为合适的格式以供浏览器使用。
 
-Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、自动生成哈希（优化缓存），前端自动化，热更新调试，SASS/LESS 和 ES6+ 编译和解释执行，字体文件的打包裁剪压缩等等一些列工作。更凭借其强大的 Loaders 和 Plugins 可以让我们完成更加丰富的功能。甚至可以自己拓展想要的功能。
+在实际使用中，Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、自动生成哈希（优化缓存），前端自动化构建，热更新调试，SASS/LESS 和 ES6+ 编译和解释执行，字体文件的打包裁剪压缩等等一些列工作。更凭借其强大的 Loaders 和 Plugins 可以让我们完成更加丰富的功能，在必要时也可以自己拓展想要的功能。
 
 ## 软件设计及实现
 
