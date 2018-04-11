@@ -221,7 +221,7 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 
 #### 资源优化
 
-##### 图片优化
+##### 图标优化
 
 最开始的时候，大部分图表都是用 png 格式的图片来实现的，但随着项目的变大，逐渐发现页面请求的资源中图片占了非常大的比重，所以为了优化网络请求就有了 Image Sprite，也就是雪碧图。具体做法是将多个图片合成一个图片，然后利用 css 中 background-position 定位显示不同的 icon 图标。这样做虽然解决了图片细碎的问题，但是却有一个很大的痛点，维护十分困难。每次新增一个图标，都需要改原始图片，而且一不小心还会影响前面已经定位好的图片，并且一旦修改雪碧图，前面图片的缓存就失效了，久而久之会越发的难以维护。
 
@@ -333,7 +333,9 @@ Webpack 把所有的资源都当成了一个模块，JavaScript、css、图片�
 * 断言库（Assertion Library）：expect.js should chai
 * 覆盖率（Coverage Library）：istanbul
 
-本文所用到的是 karma + jasmine + istanbul。jasmine 是一个比较完善的测试框架，自带了丰富的断言函数，在编写测试用例的时候能够不用引用第三方断言库。
+我们在开发中使用“测试驱动开发”（TDD：Test-Driven Development），这种开发方式的好处就是确保一个程序模块的行为符合我们设计的测试用例。在未来需要修改的时候，可以在很大程度上确保这个模块的逻辑是正确的。
+
+本文所用到的是 karma + mocha + istanbul。mocha 是一个比较完善的 JavaScript 测试框架，可以在浏览器上运行也可以在 node.js 环境下运行。
 
 #### 持续集成
 
@@ -371,6 +373,23 @@ after_script:
 我需要做的就是安装 karma-sauce-launcher 这个 karma 插件，这个插件可以帮我们自动调起相应的浏览器。并且在 karma 的配置文件中注册 SauceLabs 服务并填写所需测试的各种浏览器版本。
 
 ### 第四章：优化效果评估
+
+对第三章提出的优化方案，我们主要从以下几个性能指标去测试我们的优化效果：
+
+* Http请求个数
+* 网站打包大小
+
+svg 打包大小 VS 图片大小
+
+字体大小优化
+
+* 首屏时间
+* 兼容性
+
+Autoprefixer 优化效果
+
+* 可维护性
+* lighthouse 测试
 
 ### 第五章：结论
 
