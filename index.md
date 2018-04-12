@@ -376,7 +376,42 @@ after_script:
 
 对第三章提出的优化方案，我们主要从以下几个性能指标去测试我们的优化效果：
 
-* Http请求个数 及 网站打包大小
+* 打包大小
+
+优化之前的打包文件：
+
+```test
+-rw-r--r--  1 archie  staff   895K  4 12 20:15 bundle.ae21a79a70d0c0a92a48.js
+-rw-r--r--  1 archie  staff   1.7K  4 12 20:15 favicon.ico
+-rw-r--r--  1 archie  staff   437B  4 12 20:15 index.html
+-rw-r--r--  1 archie  staff   149K  4 12 20:15 styles.61295b6c760ff3a938ff.css
+-rw-r--r--  1 archie  staff   384K  4 12 20:15 vendor.1d33576e0fe8974a18fd.dll.js
+```
+
+优化之后的打包文件：
+
+```test
+-rw-r--r--  1 archie  staff   357K  4 12 21:18 bundle.ae21a79a70d0c0a92a48.js
+-rw-r--r--  1 archie  staff   1.7K  4 12 21:18 favicon.ico
+drwxr-xr-x  6 archie  staff   192B  4 12 21:18 font
+-rw-r--r--  1 archie  staff   410B  4 12 21:18 index.html
+-rw-r--r--  1 archie  staff    30K  4 12 21:18 styles.500dbac88cab9453febb.css
+-rw-r--r--  1 archie  staff   193K  4 12 21:18 vendor.1d33576e0fe8974a18fd.dll.js
+```
+
+其中 index.html 是我们网站的入口文件；bundle.js 是程序的业务逻辑代码；vendor.dll.js 是和业务逻辑没有关系的第三方代码库，我们将其抽离出来，单独打包成一个文件，这样可以在网站更新的时候复用这部分文件的缓存；styles.css 是我们的样式文件；还有 font 文件夹，里面存放是是经过优化的图标文件，优化之前这些图标是存放在 bundle.js 中。经过整理后，我们得到如下的结果：
+
+|文件|优化前|优化后|优化效果|
+|---|---|---|---|
+|index.html|437B|410B|93.82%|
+|bundle.js|895K|357K+192B|39.89%|
+|dll.js|384K|193K|50.26%|
+|styles.css|149K|30K|20.13%|
+|all|1237K|580K|46.89%|
+
+通过上面的图表，可以看到我们的优化效果非常明显，尤其是 css 文件，少了约 4/5 的大小，整体大小减少了 53.11%。
+
+![analyze](./img/analyze.png)
 
 svg 打包大小 VS 图片大小
 
@@ -402,7 +437,8 @@ hash 优化缓存：
 
 * lighthouse 测试
 
-图片展示
+![befor](./img/lighthouse-befor.png)
+![after](./img/lighthouse-after.png)
 
 ### 第五章：结论
 
