@@ -217,6 +217,25 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 
 为项目添加 PostCSS 支持，PostCSS 是一个利用 JavaScript 插件来对 CSS 进行转换的工具，这些插件非常强大，强大到无所不能。其中，Autoprefixer 就是众多 PostCSS 插件中最流行的一个，他能通过配置的要兼容的浏览器版本，自动为 css 添加相应的前缀。
 
+处理前：
+
+```css
+.example {
+    background: linear-gradient(to bottom, white, black);
+}
+```
+
+处理后：
+
+```css
+.example {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+    background: -webkit-linear-gradient(top, white, black);
+    background: -o-linear-gradient(top, white, black);
+    background: linear-gradient(to bottom, white, black);
+}
+```
+
 每个经验丰富的软件开发人员都知道，一旦你使用了全局命名空间（Global namespaces），就相当于打开了一扇充满麻烦的大门。如果在代码中没有为对象提供唯一的名称，那么你将不可避免地面临命名冲突、各种副作用以及无法维护的代码问题相继到来。几乎所有的编程语言都支持带有作用域隔离(Isolated scope)的模块。即使是一直与 CSS 密切相关的JavaSript，也具有 AMD、CommonJS 和 ES6 模块。然而 CSS 并没有这样的模块。CSS-Modules 的出现填补了这样的空白。CSS-Modules 可以使用 node.js 自动处理所有的 CSS 类，默认情况这些类都是本地的（局部的），也是唯一的。然后生成一个JSON文件来存储原始类和映射出来的类。这样就解决了 css 的全局污染。可以使开发者更高效的开发，并且对项目重构也更加友好。因为每个模块的 CSS 都是相互独立的，不会因为全局命名空间而导致牵一发而动全身的情况了。
 
 #### 资源优化
@@ -376,6 +395,20 @@ after_script:
 
 对第三章提出的优化方案，我们主要从以下几个性能指标去测试我们的优化效果：
 
+* lighthouse 测试
+
+lighthouse 能够分析网络应用程序和网页，并对比最佳实践给出一个程序的评分。
+
+优化前：
+![befor](./img/lighthouse-befor.png)
+
+优化后：
+![after](./img/lighthouse-after.png)
+
+首先是性能指标，经过优化从36分提高到了69分，涨幅非常明显；其次是安全性，应为我们的程序还没有对安全性进行进一步的优化，所以这里的评分并没有变化；再后面是针对最佳的评分，从75分提高到了81分，已经非常不错了。最后是 SEO，这是单页Web应用共有的缺点，所以分数并没有提升。
+
+我们关注的指标不仅仅有这些，还应该包括下面这些：
+
 * 打包大小
 
 优化之前的打包文件：
@@ -409,38 +442,19 @@ drwxr-xr-x  6 archie  staff   192B  4 12 21:18 font
 |styles.css|149K|30K|20.13%|
 |all|1237K|580K|46.89%|
 
-通过上面的图表，可以看到我们的优化效果非常明显，尤其是 css 文件，少了约 4/5 的大小，整体大小减少了 53.11%。
+通过上面的图表，可以看到我们的优化效果非常明显，尤其是 css 文件，少了约 4/5 的大小，整体大小减少了 53.11%。下面是打包后的模块图：
 
 ![analyze](./img/analyze.png)
 
-svg 打包大小 VS 图片大小
-
-字体大小优化
-
-压缩混淆 js
-
-分离第三方库
-
-编译文件分析展示图
-
-* 首屏时间
-
-压缩未压缩首屏时间对比
-
-* 兼容性
-
-Autoprefixer 优化效果
-
-* 可维护性
-
-hash 优化缓存：
-
-* lighthouse 测试
-
-![befor](./img/lighthouse-befor.png)
-![after](./img/lighthouse-after.png)
-
 ### 第五章：结论
+
+经过我们的理论研究和实践测试，我们发现上述的优化方案确实能够通过 React、Redux 和 Webpack 框架的深度整合和性能优化，在减少开发者开发难度的同时来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。
+
+这个解决方案仍然很多没有解决的问题，例如：
+
+* 网站的 SEO 非常差劲，搜索引擎搜索到的结果可能是一片空白。
+* 网站的首屏时间略长，但可以通过适当的前后端同构渲染来解决这个问题。
+* 在网站部署方面依然存在优化空间，例如启用 gzip 压缩，将静态文件放到CDN网络上。
 
 项目截图：
 ![nusic](./img/music.png)
