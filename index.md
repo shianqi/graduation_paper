@@ -2,7 +2,7 @@
 
 ## 摘要
 
-随着互联网技术的极速发展，人们的生活越来越离不开互联网，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，利用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
+随着近年来互联网技术的极速发展，人们对互联网的依赖也越来越强，和计算机进行交互的场景也越来越多，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，运用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
 
 ## 论文关键词
 
@@ -15,7 +15,7 @@ Front-end optimization solution based on React, Redux and Webpack
 Author:Shi anqi
 Tutor:Xing yi
 
-With the rapid development of Internet technology, people's lives are increasingly inseparable from the Internet, followed by the ever-increasing demand from the public for user experience. The development of front-end development technology can greatly simplify the development of developers, thereby reducing the developer's development costs and the overall quality of the site. This article mainly discusses the application in the front-end development field, uses the deep integration of React, Redux, and Webpack to optimize the performance and quality of web pages, and greatly improves the responsiveness and compatibility of the web site under a smaller package size. The thesis mainly includes the use of React for component development, the use of Redux to manage complex single-page Web applications (SPA) that require frequent data exchange and running state, and use Webpack to package and optimize the project. Based on the above theory, a SPA cloud music client was built to study the overall performance of the website through React, Redux, and Webpack in specific projects.
+With the rapid development of Internet technology in recent years, people’s reliance on the Internet has become stronger, and more and more scenes have been interacted with computers. As a result, public demand for user experience has become higher and higher. The development of front-end development technology can greatly simplify the development of developers, thereby reducing the developer's development costs and the overall quality of the site. This article mainly discusses the application in the front-end development field, and uses the deep integration of React, Redux, and Webpack to optimize the performance and quality of the webpage, greatly improving the responsiveness and compatibility of the web site under a smaller package size. The thesis mainly includes component development using React, using Redux to manage the changing data and running status in a complex single-page Web application (SPA), and using Webpack to package and optimize the project. Based on the above theory, a SPA cloud music client was built to study the overall performance of the website through React, Redux, and Webpack in specific projects.
 
 Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
@@ -23,15 +23,15 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ### 选题背景及研究意义
 
-随着互联网的快速发展，人们对互联网的依赖也变得越来强。不论是在科研机构，商业领域还是个人生活，我们无时无刻不在直接或者间接的与计算机进行交互。然而随着业务需求越来越复杂，用户需要的界面和数据的交互也越来越繁杂。编写传统的 HTML、CSS、JavaScript 页面的复杂度越来越大，维护成本也随之成倍的提高，往往一个小小的改动就要花费很长的时间去修改。此外各个企业之间的竞争越来越大，为了提升用户体验，并且应对多变的市场环境，各个公司也在不断探寻更好的前端技术。前端技术的发展程度关系到各行各业共同的利益，也关系到我们每个人的上网体验。所有的这些方面，都促使前端技术必须不断的发展，来适应日益增长的需求。
+互联网的快速发展使人们对它的依赖也变得越来强，不论是在科研机构，商业领域还是个人生活，我们无时无刻不在直接或者间接的与计算机进行交互。然而随着业务需求越来越复杂，用户需要的界面和数据的交互也越来越繁杂。编写传统的 HTML、CSS、JavaScript 页面的复杂度越来越大，维护成本也随之成倍的提高，往往一个小小的改动就要花费很长的时间去修改。此外各个企业之间的竞争越来越大，为了提升用户体验，并且应对多变的市场环境，各个公司也在不断探寻更好的前端技术。前端技术的发展程度关系到各行各业共同的利益，也关系到我们每个人的上网体验。所有的这些方面，都促使前端技术必须不断的发展，来适应日益增长的需求。
 
-前端技术的发展，从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，同年为动态 web 网页设计的服务端脚本 PHP 诞生。1995年网景推出了 JavaScript，实现了客户端的计算任务。再到1999年 W3C 发布 HTML4，网页的出现是为了更好的交流彼此的想法。与此同时，整个 IT 行业的概念和雏形逐渐形成。
+前端技术的发展，从1991年 Tim Berners-Lee 公开提及 HTML 描述，到1994年网景推出了第一版 Navigator，1995年 JavaScript 横空出世，它能够完成客户端的计算任务。之后在1999年 W3C 组织了正式发布 HTML 4.0 版本，网页技术变的越来越成熟。与此同时，整个 IT 行业的概念和雏形也在逐渐形成。
 
-再到 2004年10月的 Web2.0 大会，Blog，Wiki，RSS 各种网站逐渐走进大家的视野。2006年8月，jQuery 的第一个版本发布，其优雅的语法、事件驱动型的编程思维使其极易上手，因此很快风靡全球。开源社区出现了大量基于 jQuery 的相关工具，这更加稳固了 jQuery 的地位。
+之后是 2006年8月，jQuery 发布其第一个版本，因为其语法非常简单、基于事件驱动型的编程方法使得很容易上手，因此在之后的一段时间都非常火爆。开源社区出现了大量基于 jQuery 的相关工具，这样完善生态链更加巩固了 jQuery 的地位。
 
-但随着 W3C 规范和标准进一步推动，大家对 Web 页面复杂度进一步的加剧，人们不再满足于 jQuery 面条式的开发，各种用于简化客户端开发的框架层出不穷，诸如 Backbone，Ember，AngularJS，React，Vue 等等各种各样的框架，其中最为出色的莫过于 React，一经开源，广受开源社区的好评。在这之后，Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 开发框架也形成了三足鼎立之势（React，Vue，AngularJS）。与此同时，在我们看不到的背后，浏览器第二次大战打响，V8 引擎开始大放异彩，Web 标准也在推动 ECMAScript5.0 进化着。node.js 发布了，意味着我们前端的领域已经拓展到服务端了。构建打包工具也默默的不停迭代，Grunt 的辉煌不复存在，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来，并在 2016年成为了主流的前端构建工具。
+然而随着 W3C 规范和标准的进一步推动，以及 Web 页面复杂度的直线上涨。前端开发工程师们不再满足于使用 jQuery 进行面条式的开发，各种各样的前端开发的框架开始渐渐浮出水面，例如： Backbone，Ember，AngularJS，React，Vue 等等，其中最为出色的莫过于 React，一经开源，就广受开源社区的好评。在这之后，Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 开发框架也形成了三足鼎立之势（React，Vue，AngularJS）。2008年，随着第一个版本的 Chrome 浏览器发布，V8 引擎也正式发布。Web 标准也在推动 ECMAScript5.0 进化着。V8 引擎发布后，node.js 也孕育而生，前端也逐渐扩大到服务端开发。各种构建打包工具也默默的不停迭代，Grunt 逐渐没落，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来，并在 2016年成为了主流的前端构建工具。
 
-从二十世纪的兴起，到现在的短短十几年发展，就已经表现出了强大的生命力，到目前发展来看，前端开发技术的发展时间相对较短，但是发展速度却非常快，并且技术的迭代也十分迅速，这和当前互联网的极速发展有着密不可分的关系。一个稳定、流畅、对用户友好的前端界面往往能够给用户带来非常良好的使用体验，能够极大的提升用户的满意度。文本所研究的基于 React、Redux 和 Webpack 的前端优化方案，正是对当前主流前端开发技术的深度整合和性能优化，基于本方案能够在减少开发者开发难度的同时，极大的优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性，获取更好的用户体验。
+从二十世纪的兴起，到现在的短短十几年发展，就已经表现出了强大的生命力，到目前发展来看，前端开发技术的发展时间相对较短，但是发展速度却非常快，并且技术的迭代也十分迅速，这和当前互联网的极速发展有着密不可分的关系。一个稳定、流畅、对用户友好的前端界面往往能够给用户带来非常良好的使用体验，非常大的提升了互联网用户的满意度。文本所研究的基于 React、Redux 和 Webpack 的前端优化方案，正是对当前主流前端开发技术的深度整合和性能优化，基于本方案能够在减少开发者开发难度的同时，极大的优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性，获取更好的用户体验。
 
 ### 论文的主要内容
 
@@ -39,25 +39,24 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 * 第一章是绪论，主要介绍了论文的选题背景以及研究意义，包括当前前端技术的发展现状以及发展历程，并在最后介绍了全文的内容安排。
 * 第二章是对本文相关概念的进行阐述，并且对本文主要涉及的相关技术进行深入的探讨。
-* 第三章是全文的重要部分，分为三小节，分别阐述了系统的设计与实现，对系统开发和生产环境下的优化方法，以及对系统进行自动化测试和持续集成。
+* 第三章是全文的重要部分，分为三小节，分别阐述了原型的设计与实现，对原型开发和生产环境下的优化方法，以及对原型进行自动化测试和持续集成。
 * 第四章是对第三章提出的方法的性能分析，主要通过对网站各项性能指标进行对比，来评估此优化方案所带来的性能提升。
 * 第五章是论文的结论，指出文章的研究结果和局限性。
 
 ## 第二章：相关技术分析
 
-本文主要涉及到的技术为 React、Redux 和 Webpack。React 主要用于构建 UI；Redux是一个应用数据流框架，用来保存和管理整个应用的状态；而 Webpack 是一个模块打包工具，它用来分析项目结构，找到 JavaScript 模块以及其它的拓展语言（Scss，Jsx等），并将其转换和打包为合适的格式供浏览器使用。
+本文主要涉及到的技术为 React、Redux 和 Webpack。其中，React 主要的作用是用来构建组件化的 UI；Redux是一个应用数据流框架，用来存储和维护整个应用的状态；而 Webpack 是一个模块打包工具，它可以分析项目的结构，找到 JavaScript 模块以及其它的拓展语言（Scss，Jsx等），并将其转换和打包为合适的格式供浏览器使用。
 
 ### React
 
 React 是一个用于构建用户界面的 JavaScript 库，起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源，一经开源，广受开源社区的好评。React 能有如今的火爆程度，和它拥有如下的的特点是密不可分的：
 
-1. **声明式设计** - React 采用声明范式，可以轻松描述应用。
 1. **高效** - 通过使用虚拟 DOM，能够减少不必要的 DOM 的交互，从而提高性能。
 1. **灵活** - 可以与已知的库和框架很好的配合。
 1. **组件化** - 天生的组件化思维，用过组件的方式使代码复用变得十分容易。能够十分容易的构建大型项目。
-1. **单向响应的数据流** 数据流动方向可以跟踪，流动单一，利于追踪问题。
+1. **单向数据流** 数据自顶上下流动，使得整个组件的状态变得可追踪。
 
-我们知道，DOM 操作是非常耗时的，如果我们把一个简单的 div 元素属性都打印出来，你会看到如下的结果，因为比较长，这里只粘贴了约 1/5。
+我们知道，如果我们直接操作 DOM，那么性能是非常差的，我们可以把一个最基础的 DOM 元素属性都列出来，结果如下，因为比较长，这里只粘贴了约 1/10。
 
 ```javascript
 const arr = []
@@ -69,13 +68,12 @@ console.log(arr.join(' '))
 ```
 
 ```text
-[align]: [title]: [lang]: [translate]:true [dir]: [dataset]:[object DOMStringMap] [hidden]:false [tabIndex]:-1 [accessKey]: [draggable]:false [spellcheck]:true [contentEditable]:inherit [isContentEditable]:false [offsetParent]:null [offsetTop]:0 [offsetLeft]:0 [offsetWidth]:0 [offsetHeight]:0 [style]:[object CSSStyleDeclaration] [innerText]: [outerText]: [onabort]:null [onblur]:null [oncancel]:null [oncanplay]:null [oncanplaythrough]:null [onchange]:null [onclick]:null [onclose]:null [oncontextmenu]:null [oncuechange]:null [ondblclick]:null [ondrag]:null [ondragend]:null [ondragenter]:null [ondragleave]:null [ondragover]:null [ondragstart]:null [ondrop]:null [ondurationchange]:null [onemptied]:null [onended]:null [onerror]:null [onfocus]:null [oninput]:null [oninvalid]:null [onkeydown]:null [onkeypress]:null [onkeyup]:null [onload]:null [onloadeddata]:null [onloadedmetadata]:null [onloadstart]:null [onmousedown]:null [onmouseenter]:null [onmouseleave]:null [onmousemove]:null [onmouseout]:null [onmouseover]:null [onmouseup]:null [onmousewheel]:null [onpause]:null [onplay]:null [onplaying]:null [onprogress]:null [onratechange]:null [onreset]:null [onresize]:null [onscroll]:null [onseeked]:null [onseeking]:null [onselect]:null [onstalled]:null [onsubmit]:null [onsuspend]:null [ontimeupdate]....
+[align]: [title]: [lang]: [translate]:true [dir]: [dataset]:[object DOMStringMap] [hidden]:false [tabIndex]:-1 [accessKey]: [draggable]:false [spellcheck]:true [contentEditable]:inherit [isContentEditable]:false [offsetParent]:null [offsetTop]:0 [offsetLeft]:0 [offsetWidth]:0 [offsetHeight]:0 [style]:[object CSSStyleDeclaration] [innerText]: [outerText]: [onabort]:null [onblur]:null [oncancel]:null [oncanplay]:null [oncanplaythrough]:null [onchange]:null [onclick]:null [onclose]:null [oncontextmenu]:null [oncuechange]:null [ondblclick]:null [ondrag]:null [ondragend]:null [ondragenter]:null [ondragleave]:null [ondragover]:null [ondragstart]:null [ondrop]:null [ondurationchange]:null [onemptied]....
 ```
 
-然而这只是第一层，真正的 DOM 元素是非常庞大的。而且操作的时候要非常的小心，可能一个轻微的触碰，就会导致整个页面重排，这就是影响性能的罪魁祸首。
-[](https://github.com/livoras/blog/issues/13)
+然而这仅仅是 DOM 对象第一层的属性，真正的 DOM 元素是非常庞大的。而且在操作 DOM 的时候要非常的小心，不然会导致整个页面重排，这对网站的性能有非常大的影响。
 
-相对于直接对 DOM 进行操作，对原生的 JavaScript 操作就非常快了，而且更加简单，所以我们可以用一个简单的 JavaScript 对象来表示 DOM 节点：
+我们可以用一个简单的 JavaScript 对象来表示 DOM 节点，这样我们只要操作 JavaScript 对象就可以模拟 DOM 上的操作了。
 
 ```javascript
 var element = {
@@ -92,7 +90,7 @@ var element = {
 
 <!-- ![code1](./img/code1-nb.png) -->
 
-上面的虚拟 DOM 节点对应的HTML写法是：
+可以将上面的 JavaScript 对象转换成真实的 DOM
 
 ```html
 <div id='article'>
@@ -105,15 +103,7 @@ var element = {
 
 既然原来的 DOM 树可以用 JavaScript 对象表示，那么反过来也可以用这个 JavaScript 对象来还原 DOM 树。
 
-那么我们就可以用 JavaScript 对象表示 DOM 信息和解构，当状态发生变化的时候，我们可以用新的对象树和旧的对象树进行比较，记录这两棵树的差异。记录下来的不同的就是我们需要真正更新的 DOM 元素。然后将其应用到真正的 DOM 树上，页面就更新了。
-
-这就是所谓的 Virtual DOM 算法，包括如下步骤：
-
-* 用 JavaScript 对象表示 DOM 树的解构；然后用这个树构建一个真正的 DOM 树，插到文档中。
-* 当状态更新的时候，重新构造一棵新的树。然后用新的树和旧的树对比，记录两棵树的差异。
-* 把所记录的两棵树的差异应用到真实的 DOM 上，视图就更新了。
-
-Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存。可以类比 CPU 和内存，既然频繁读写内存这么慢，那么我们可以在 CPU 上加入 Cache Memory 来加速这一操作。
+那么我们就可以用 JavaScript 对象表示 DOM 信息和结构，当状态发生变化的时候，我们可以用新的对象树和旧的对象树进行比较，记录这两棵树的差异。记录下来的不同的就是我们需要真正更新的 DOM 元素。然后将其应用到真正的 DOM 树上，页面就更新了。这就是 React 的 Virtual DOM 算法。
 
 ### Redux
 
@@ -151,11 +141,11 @@ Webpack 可以看作一个模块打包器，它要做的就是分析你的项目
 
 在实际使用中，Webpack 能做的事情有很多，包括：代码的合并、压缩、混淆、自动生成哈希（优化缓存），前端自动化构建，热更新调试，SASS/LESS 和 ES6+ 编译和解释执行，字体文件的打包裁剪压缩等等一些列工作。更凭借其强大的 Loaders 和 Plugins 可以让我们完成更加丰富的功能，在必要时也可以自己拓展想要的功能。
 
-## 系统设计及实现
+## 原型设计及实现
 
 ### 总体架构设计
 
-本系统采用 B/S 架构，并且将前后端进行分离，前端做成单页 Web 应用（single page web application，SPA）。后端做成 RESTful API，通过 AJAX 请求进行数据交互。但本文所研究的内容只限于前端单页应用的开发，故不涉及后端服务器部分。
+本原型采用 B/S 架构，并且将前后端进行分离，前端做成单页 Web 应用（single page web application，SPA）。后端做成 RESTful API，通过 AJAX 请求进行数据交互。但本文所研究的内容只限于前端单页应用的开发，故不涉及后端服务器部分。
 
 之所以将应用做成单页 Web 应用，是因为其有如下优点：
 
@@ -211,7 +201,7 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 
 代码风格和整洁程度也是衡量代码质量的重要指标，毕竟程序是写给人看的，顺便让计算机去执行。不同风格混杂在一起极大的影响代码的可读性与质量。所以，我们的项目也要加入静态检查和统一编码风格的检测。eslint 和 stylelint 就是分别是对 JavaScript 和 CSS 做静态检查和统一编码风格。并且都使用当下开源社区都认可的 standard 配置。
 
-### 系统的优化方案
+### 原型的优化方案
 
 #### CSS 样式优化
 
@@ -236,13 +226,13 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 }
 ```
 
-每个经验丰富的软件开发人员都知道，一旦你使用了全局命名空间（Global namespaces），就相当于打开了一扇充满麻烦的大门。如果在代码中没有为对象提供唯一的名称，那么你将不可避免地面临命名冲突、各种副作用以及无法维护的代码问题相继到来。几乎所有的编程语言都支持带有作用域隔离(Isolated scope)的模块。即使是一直与 CSS 密切相关的JavaSript，也具有 AMD、CommonJS 和 ES6 模块。然而 CSS 并没有这样的模块。CSS-Modules 的出现填补了这样的空白。CSS-Modules 可以使用 node.js 自动处理所有的 CSS 类，默认情况这些类都是本地的（局部的），也是唯一的。然后生成一个JSON文件来存储原始类和映射出来的类。这样就解决了 css 的全局污染。可以使开发者更高效的开发，并且对项目重构也更加友好。因为每个模块的 CSS 都是相互独立的，不会因为全局命名空间而导致牵一发而动全身的情况了。
+对于一个经验丰富的软件开发人员应该知道，全局命名空间是一个强大但是非常危险的技术，一旦使用就会给未来留下不易察觉的隐患。如果在写代码的时候，没有为类提供唯一的名称，那么很有可能会导致明明空间冲突，从而导致出现各种各样的问题最终整个代码难以维护。几乎所有的编程语言都支持隔离独立的作用域。然而 CSS 并没有这。而 CSS-Modules 的出现填补了这样的空白。CSS-Modules 可以使用 node.js 处理所有出现的 CSS 类，并将每个模块单独起一个唯一的类名。然后用JSON存储原始类和当前类的映射。这样就解决了 css 的全局污染。可以使开发者更高效的开发，并且对项目重构也更加友好。这样每个模块的 CSS 都是相互独立，互补依赖，不会因为全局命名空间而导致牵一发而动全身的情况了。
 
 #### 资源优化
 
 ##### 图标优化
 
-最开始的时候，大部分图表都是用 png 格式的图片来实现的，但随着项目的变大，逐渐发现页面请求的资源中图片占了非常大的比重，所以为了优化网络请求就有了 Image Sprite，也就是雪碧图。具体做法是将多个图片合成一个图片，然后利用 css 中 background-position 定位显示不同的 icon 图标。这样做虽然解决了图片细碎的问题，但是却有一个很大的痛点，维护十分困难。每次新增一个图标，都需要改原始图片，而且一不小心还会影响前面已经定位好的图片，并且一旦修改雪碧图，前面图片的缓存就失效了，久而久之会越发的难以维护。
+最开始的时候，网站的图标都是用 png/jpg 格式的图片来展示的，但是随着项目的规模逐渐变大，逐渐发现请求中的图片占了非常大的比重，所以为了优化网络请求就有了 Image Sprite 技术。具体做法是将多个图片放在一张图片上，然后通过 background-position 定位特定位置的图片来使用。这样做虽然解决了图片细碎的问题，但是却依然难以维护。每次新增图标都需要改原始图片，而且一不小心还会影响前面已经定位好的图片，并且一旦修改前面图片的缓存就失效了，久而久之会越发的难以维护。
 
 之后又出现了使用字体库来实现页面图标的，常见的如广泛使用的 Font Awesome，使用起来非常的方便，但是有一个致命的缺点，那就是找起来太麻烦了，从 900 多个图标找出自己想要的需要很长的时间。并且如果要拓展也是很麻烦的。这时候，iconfont 就来了。这是阿里巴巴的图标库，并且可以将自己的图标上传供大家使用。
 
@@ -265,7 +255,7 @@ Symbol 在内部使用的是 svg 图标，因此有如下优点：
 * 相比于 img，整体更小
 * 可以内联到 html 中，减少 http 请求
 
-但是直接是使用 Symbol 方式还有一个致命的缺点，那就是现在所有的 svg 都是通过 iconfont 平台生成的 iconfont.js 引入的。每次增删图标只能整个 js 文件一起替换。其次也无法做到 **按需加载** 不能根据使用了哪些 svg 来动态加载。也不方便将自己做的 svg 图标整合到 iconfont 上，只能上传然后再重新生成并且下载，十分繁琐。
+但是直接是使用 Symbol 还有一个很大的问题，现在所有的图标都是通过 iconfont 引入的。每次增删图标只能将整个 iconfont.js 文件一起替换。其次也无法做到 **按需加载** 不能根据使用了哪些 svg 来动态加载。也不方便将自己做的 svg 图标整合到 iconfont 上，只能上传然后再重新生成并且下载，十分繁琐。
 
 这时候就需要我们自己制作 svg-sprite 了，为了工程化和自动化，我们使用 Webpack 来处理整个制作 svg-sprite 的过程，这时候就要用到 svg-sprite-loader 这个 Webpack loader 了。结合我们的项目，我们将 src/icons 目录下的所有 svg 图标都交给 svg-sprite-loader 这个 loader 去处理，并且其他目录下的图标不受此影响。
 
@@ -284,7 +274,7 @@ config.loader('svg-sprite-loader', {
 
 <!-- ![code5](./img/code5-nb.png) -->
 
-配合 Webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，就会自动生成 svg symbol 了。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
+配合 Webpack 的 require.context 函数，我们就可以不用手动引入 svg 图标。只需要将图标放到之前定义好的 src/icons 文件夹下，当需要这个图标时就会自动在这个文件夹中寻找。之后我们将这部分封装成一个 React 组件，就能在想使用图标的地方这样使用了：
 
 ```html
 <Icon type="caret-down" />
@@ -321,7 +311,7 @@ config.loader('svg-sprite-loader', {
 
 生成 source map：我们的源代码是用 ES2017(ES8) 写的，但是运行在浏览器中的是经过 Babel 编译后的代码，调试的时候就很痛苦了。这时我们就需要 source map 来映射编译前前的代码。而且要确保生成 source map 的时候要足够快，不然编译的过程就太慢了。所以采用了 cheap-source-map 这种编译速度快，但是不太安全的方法。在生产环境一定不能采用这种方法。
 
-分离第三方库：第三方库是比较稳定的，不会轻易改变，利用浏览器缓存后，用户再次加载页面会减少服务器请求，提高速度优化体验。而且还能够减少热模块替换时的编译速度，使改变更快的应用到浏览器上。这样做的好处是，只要库文件不变，只需要打包一次，以后再打包业务代码和库文件没关系啦，这样一来真正做到了库文件永远是那个库文件，只要库文件不变，缓存永远有效
+分离第三方库：第三方的代码库一般在我们架构整个项目的时候就会确定使用的库和相应的版本，并且在日后的开发维护中很少改动，所以我们可以将这些变化小的部分抽离出来。而且还能够减少热模块替换时的编译速度，使改变更快的应用到浏览器上。这样做的好处是，每次打包的时候，都会计算库包含的所有代码，若干库中的文件不变，那么生成的 Hash 就相同。所以只需要打包一次，只要库文件不变，就可以一直使用。
 
 编译文件分析：一个成熟的项目，需要的 npm 依赖包也是十分多的。就拿本项目说就已经 69 个依赖了，如果这当中有写没有用到的被打包进项目中，那岂不是太影响最终的效果了。所以我们需要 webpack-bundle-analyze 这个插件，来帮我们可视化的分析出项目每个依赖的大小和依赖关系，使我们能更加极致的优化依赖关系。
 
@@ -333,15 +323,15 @@ config.loader('svg-sprite-loader', {
 
 * 分离打包 css 和 js：
 
-Webpack 把所有的资源都当成了一个模块，JavaScript、css、图片、字体等资源，都可以打包在一个 bundle.js 中。但是如果我们改变部分 js 代码，会导致整个应用的 hash 发生变化，所以 css 缓存也会失效。使用 extract-text-webpack-plugin 插件，我们可以将 css 和 js 分别打包，将业务逻辑从样式中抽离出来，从而更好的利用缓存。
+Webpack 把所有的资源都当成了一个模块，JavaScript、css、图片、字体等资源，都可以打包在一个 bundle.js 中。但是如果我们改变部分 js 代码，会导致整个应用的 hash 发生变化，所以 css 缓存也会失效。通过使用 extract-text-webpack-plugin 这个插件，我们能够将程序中的 css 和 JavaScript 打包到不同的文件，将业务逻辑从样式中抽离出来，从而更好的利用缓存。
 
 * 压缩混淆 js：
 
 通过 UglifyPlugin 可以将 Webpack 编译后代码进行压缩，并且使用更短的变量名代替原来的变量名。使生产环境的代码变得更小，下载源文件所需要的时间大大缩短。还有一个好处就是别人更难破解你的代码，因为经过混淆后的代码十分晦涩难懂。
 
-### 系统自动化测试及持续集成
+### 原型自动化测试及持续集成
 
-靠人工来保证项目的维护总是不错差错是不靠谱的，人总有健忘和糊涂的时候，尤其是当项目越来越复杂的时候，一个人甚至无法了解项目的全部逻辑，这时我们就要依靠测试来保证项目的可靠性了，这里所说的测试包括但不限于，单元功能测试，UI测试，兼容性测试。
+项目的维护如果全部靠人来保证，那么这个项目也就存在着风险。毕竟人总有犯错的时候，尤其当项目非常庞大的时候，甚至是项目负责人都无法了解项目的全部代码，那么这个时候，测试的出现就可以很好的弥补这个缺陷。
 
 #### 自动化测试
 
@@ -352,17 +342,15 @@ Webpack 把所有的资源都当成了一个模块，JavaScript、css、图片�
 * 断言库（Assertion Library）：expect.js should chai
 * 覆盖率（Coverage Library）：istanbul
 
-我们在开发中使用“测试驱动开发”（TDD：Test-Driven Development），这种开发方式的好处就是确保一个程序模块的行为符合我们设计的测试用例。在未来需要修改的时候，可以在很大程度上确保这个模块的逻辑是正确的。
+高级工程师在开发软件的时候，会使用“测试驱动开发”（TDD：Test-Driven Development），就是先写好测试，然后逐步满足测试所需的功能。这种开发方式的好处能够非常大程度上减少低级失误，在未来需要对这部分代码重构或者修改的时候，可以在一定程度上保证正确性。
 
 本文所用到的是 karma + mocha + istanbul。mocha 是一个比较完善的 JavaScript 测试框架，可以在浏览器上运行也可以在 node.js 环境下运行。
 
 #### 持续集成
 
-持续集成是一种软件开发实践，即一个团队的开发成员每天都要集成他们的工作，并且每天至少集成一次，也就意味着每天可能会发生多次集成。每一次的集成都通过自动化的构建（包括编译，自动化测试，发布等）来验证，从而尽可能早的发现问题。
+在我们的实际开发中，一个项目肯定是要很多人一起合作完成的，所以软件的开发成员每天都要将他们的工作提交到代码仓库，也就意味着每天可能会发生多次代码提交。每一次的代码提交都应该通过自动化的编译，自动化测试来验证，从而尽可能早的发现问题。目前主流的持续集成工具有 Travis CI 和 Circle CI，本文采用的是 Travis CI。
 
-GitHub 上比较主流的持续集成工具有 Travis CI 和 Circle CI。我们以 Travis CI 为例：
-
-在项目根目录下创建 Travis 的配置文件，并写下如下配置：
+我们要在根目录下创建 .travis.yml 文件，并添加如下的配置：
 
 ```yaml
 language: node_js
@@ -379,17 +367,11 @@ after_script:
 
 <!-- ![code](./img/code9-nb.png) -->
 
-我们需要告诉我们的测试代码是用什么语言（language）编写的、相应版本（version）、每次构建如何安装依赖包（install）、怎么执行测试程序（script）。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
+我们需要在配置文件中添加所用的语言、相应版本、如何安装所需依赖、如何执行测试代码。当完成这些配置后，每次将代码提交到 GitHub 上时就会自动触发测试脚本，如果产生问题会给项目提交者发送邮件提醒。通过日志查询具体问题，从而尽早发现问题所在。
 
 当完成测试时，会调用 after_script 中的 npm 脚本，进行代码覆盖率检查，代码覆盖率报告可以通过一系列工具可视化的将代码测试情况反馈给用户，让用户感知这个程序的测试覆盖情况。
 
 [](http://blog.csdn.net/zhangzq86/article/details/55657322)
-
-#### 跨浏览器集成测试
-
-我们的代码最终是运行在浏览器中，所以在各个浏览器端的兼容性也是非常重要的。很多项目会选择使用 PhantomJS/jsdom 当作浏览器环境来运行代码，虽然这样很方便，但是毕竟是模拟浏览器环境，无法完全代替真实的浏览器环境，并且各个浏览器的差异还是十分大的，甚至同一浏览器不同版本也存在巨大的差异。为此，我们需要 SauceLabs 这个平台帮助我们提供多重浏览器环境（包括 PC 端和移动端），并且帮助我们实现在多个浏览器中自动运行脚本。
-
-我需要做的就是安装 karma-sauce-launcher 这个 karma 插件，这个插件可以帮我们自动调起相应的浏览器。并且在 karma 的配置文件中注册 SauceLabs 服务并填写所需测试的各种浏览器版本。
 
 ### 第四章：优化效果评估
 
@@ -405,7 +387,7 @@ lighthouse 能够分析网络应用程序和网页，并对比最佳实践给出
 优化后：
 ![after](./img/lighthouse-after.png)
 
-首先是性能指标，经过优化从36分提高到了69分，涨幅非常明显；其次是安全性，应为我们的程序还没有对安全性进行进一步的优化，所以这里的评分并没有变化；再后面是针对最佳的评分，从75分提高到了81分，已经非常不错了。最后是 SEO，这是单页Web应用共有的缺点，所以分数并没有提升。
+首先是性能指标，经过优化从36分提高到了69分，涨幅非常明显；其次是安全性，应为我们的程序还没有对安全性进行进一步的优化，所以这里的评分并没有变化；再后面是针对最佳的评分，从75分提高到了81分，已经非常不错了。最后是 SEO，这是单页Web应用都存在的痛点，所以分数并没有提升。
 
 我们关注的指标不仅仅有这些，还应该包括下面这些：
 
@@ -448,7 +430,7 @@ drwxr-xr-x  6 archie  staff   192B  4 12 21:18 font
 
 ### 第五章：结语
 
-通过使用 React 进行 UI 构建，然后使用 Redux 管理应用数据，然后通过 Webpack 分析项目结构，找到项目所依赖的模块，将其转换打包为合适的格式提供给浏览器使用。并在此基础上，通过 babel 兼容最新的 JavaScript 规范，PostCSS 来对 css 进行兼容和拓展，并用 CSS-Moudles 来对 css 进行作用域隔离。使用 iconfont 对图标从大小到兼容性进行优化。并在此基础上添加了自动化测试和持续集成。
+通过使用 React 进行 UI 构建，然后使用 Redux 管理应用数据，然后通过 Webpack 分析项目结构，找到项目所依赖的模块，将其转换打包为浏览器可以正确识别格式。并在此基础上，通过 babel 兼容最新的 JavaScript 规范，PostCSS 来对 css 进行兼容和拓展，并用 CSS-Moudles 来对 css 进行作用域隔离。使用 iconfont 对图标从大小到兼容性进行优化。并在此基础上添加了自动化测试和持续集成。
 
 经过我们的理论研究和实践测试，我们发现上述的优化方案确实非常有效果，不仅可以在减少开发者开发难度，并且可以同时优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。
 
