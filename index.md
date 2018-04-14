@@ -2,7 +2,7 @@
 
 ## 摘要
 
-随着近几年来互联网技术的极速发展，人们对互联网的依赖也越来越强，和计算机进行交互的场景也越来越多，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，运用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
+随着近几年来互联网技术的极速发展，人们对它的依赖也越来越强，和计算机进行交互的场景也越来越多，随之而来的是公众对用户体验的要求越来越高。前端开发技术的发展能够大大简化开发者的开发难度，从而减少开发者的开发成本并且网站的整体质量。本文主要探讨在前端开发领域方面的应用，运用 React、Redux 和 Webpack 的深度整合，来优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。论文主要包括使用 React 进行组件化开发，使用 Redux 管理复杂的单页 Web 应用（SPA）中的换数据和运行状态，并且使用 Webpack 对项目进行打包优化。之后根据以上理论构建出一个 SPA 云音乐客户端来研究在具体项目中通过 React、Redux 和 Webpack 来优化网站的整体性能。
 
 ## 论文关键词
 
@@ -15,7 +15,7 @@ Front-end optimization solution based on React, Redux and Webpack
 Author:Shi anqi
 Tutor:Xing yi
 
-With the rapid development of Internet technology in recent years, people’s reliance on the Internet has become stronger, and more and more scenes have been interacted with computers. As a result, public demand for user experience has become higher and higher. The development of front-end development technology can greatly simplify the development of developers, thereby reducing the developer's development costs and the overall quality of the site. This article mainly discusses the application in the front-end development field, and uses the deep integration of React, Redux, and Webpack to optimize the performance and quality of the webpage, greatly improving the responsiveness and compatibility of the web site under a smaller package size. The thesis mainly includes component development using React, using Redux to manage the changing data and running status in a complex single-page Web application (SPA), and using Webpack to package and optimize the project. Based on the above theory, a SPA cloud music client was built to study the overall performance of the website through React, Redux, and Webpack in specific projects.
+With the rapid development of Internet technology in recent years, people’s reliance on it has become stronger and more and more interactions with computers have taken place. As a result, the public’s requirements for user experience have become higher and higher. . The development of front-end development technology can greatly simplify the development of developers, thereby reducing the developer's development costs and the overall quality of the site. This article mainly discusses the application in the front-end development field, and uses the deep integration of React, Redux, and Webpack to optimize the performance and quality of the webpage, greatly improving the responsiveness and compatibility of the web site under a smaller package size. The thesis mainly includes component development using React, using Redux to manage the changing data and running status in a complex single-page Web application (SPA), and using Webpack to package and optimize the project. Based on the above theory, a SPA cloud music client was built to study the overall performance of the website through React, Redux, and Webpack in specific projects.
 
 Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
@@ -23,13 +23,13 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ### 选题背景及研究意义
 
-互联网的快速发展使人们对它的依赖也变得越来强，不论是在科研机构，商业领域还是个人生活，我们无时无刻不在直接或者间接的与计算机进行交互。然而随着业务需求逐渐繁杂，用户需要的界面和数据的交互也越来越繁杂。编写传统的 HTML、CSS、JavaScript 页面的复杂度越来越大，维护成本也随之成倍的提高，往往一个小小的改动就要花费很长的时间去修改。此外各个企业之间的竞争越来越大，为了提升用户体验，并且应对多变的市场环境，各个公司也在不断探寻更好的前端技术。前端技术的发展程度关系到各行各业共同的利益，也关系到我们每个人的上网体验。所有的这些方面，都促使前端技术必须不断的发展，来适应日益增长的需求。
+互联网的快速发展使人们对它的依赖也变得越来强，不论是在科研机构，商业领域还是个人生活，我们无时无刻不在直接或者间接的与计算机进行交互。然而随着业务需求逐渐繁杂，用户需要的界面和数据的交互也越来越繁杂。编写传统网页的复杂度越来越大，维护成本也随之成倍的提高，往往一个小小的改动就要花费很长的时间去修改。此外各个企业之间的竞争越来越大，为了提升用户体验，并且应对多变的市场环境，各个公司也在不断探寻更好的前端技术。前端技术的发展程度关系到各行各业共同的利益，也关系到我们每个人的上网体验。所有的这些方面，都促使前端技术必须不断的发展，来适应日益增长的需求。
 
-前端技术的发展，从1991年 Tim Berners-Lee 公开提及 HTML，到1994年 Netscape 公司推出了 Navigator 的第一个版本，再到 1995年 JavaScript 横空出世，使得在客户端进行计算得以实现。之后在1999年 W3C 组织了正式发布 HTML 4.0 版本，网页技术变的越来越成熟。与此同时，整个 IT 行业的概念和雏形也在逐渐形成。
+前端技术的发展，从1991年 Tim Berners-Lee 公开提及 HTML，到1994年 Netscape 公司推出了 Navigator1.0，再到 1995年 JavaScript 横空出世，使得计算也可以在网页上进行。之后在1999年 W3C 组织了正式发布 HTML 4.0 版本，网页技术变的越来越成熟。与此同时，互联网的规模也在逐渐扩张。
 
-之后是 2006年8月，jQuery 发布其第一个版本，因为其语法非常简单、基于事件驱动型的编程方法使得很容易上手，因此在之后的一段时间都非常火爆。开源社区出现了大量基于 jQuery 的相关工具，这样完善生态链更加巩固了 jQuery 的地位。
+之后是 2006年8月，jQuery 1.0 版本进入大家视野，因为其语法非常简单、基于事件驱动型的编程方法使得很容易上手，因此在之后的一段时间都非常火爆。开源社区出现了大量基于 jQuery 的相关工具，这样完善生态链更加巩固了 jQuery 的地位。
 
-然而随着 W3C 规范和标准的进一步推动，以及 Web 页面复杂度的直线上涨。前端开发工程师们不再满足于使用 jQuery 进行面条式的开发，各种各样的前端开发的框架开始渐渐浮出水面，例如： Backbone，Ember，AngularJS，React，Vue 等等，其中最为出色的莫过于 React，一经开源，就广受开源社区的好评。在这之后，Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 开发框架也形成了三足鼎立之势（React，Vue，AngularJS）。2008年，随着第一个版本的 Chrome 浏览器发布，V8 引擎也正式发布。Web 标准也在推动 ECMAScript5.0 进化着。V8 引擎发布后，node.js 也孕育而生，前端也逐渐扩大到服务端开发。各种构建打包工具也默默的不停迭代，Grunt 逐渐没落，Gulp 刚刚兴起，Webpack 的浪潮就席卷而来，并在 2016年成为了主流的前端构建工具。
+然而随着 W3C 规范逐渐完善，以及 Web 页面复杂度的直线上涨。前端开发工程师们逐渐厌倦使用 jQuery 编写面条式的代码，各种各样的前端开发的框架开始渐渐浮出水面，例如： Backbone，React，Ember，AngularJS，Vue 等等，其中最为出色的莫过于 React，一经开源，就广受开源社区的好评。在这之后，Vue 凭借广大的中国开发者强势崛起。AngularJS2 也完成发布。主流的 JavaScript 开发框架也形成了三足鼎立之势（React，Vue，AngularJS）。2008年，随着第一版 Chrome 发布，V8 引擎也正式发布。ECMAScript5 也紧随 V8 之后完成发布。V8 引擎发布后，node.js 也孕育而生，前端也逐渐扩大到服务端开发。各种构建工具也默默的不停迭代，随着 Grunt 逐渐没落，Gulp，Webpack 相继出现。但明显 Webpack 更受开源社区的青睐，并在 2016年成为了主流的前端构建工具。
 
 从二十世纪的兴起，到现在的短短十几年发展，就已经表现出了强大的生命力，到目前发展来看，前端开发技术的发展时间相对较短，但是发展速度却非常快，并且技术的迭代也十分迅速，这和当前互联网的极速发展有着密不可分的关系。一个稳定、流畅、对用户友好的前端界面往往能够给用户带来非常良好的使用体验，非常大的提升了互联网用户的满意度。文本所研究的基于 React、Redux 和 Webpack 的前端优化方案，正是对当前主流前端开发技术的深度整合和性能优化，基于本方案能够在减少开发者开发难度的同时，极大的优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性，获取更好的用户体验。
 
@@ -45,11 +45,11 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ## 第二章：相关技术分析
 
-本文主要涉及到的技术为 React、Redux 和 Webpack。其中，React 主要的作用是用来构建组件化的 UI；Redux是一个应用数据流框架，用来存储和维护整个应用的状态；而 Webpack 是用来对项目依赖进行分析打包，它可以分析项目的结构，找到 JavaScript 模块以及其它的拓展语言，并结合其他工具对代码进行处理，最终将其转换和打包为合适的格式供浏览器使用。
+本文主要涉及到的技术为 React、Redux 和 Webpack。其中，React 主要的作用是用来构建组件化的 UI；Redux是一个应用数据流框架，用来存储和维护整个应用的状态；而 Webpack 是用来对项目依赖进行分析打包，它可以分析项目的结构，找到 JavaScript 及相关生态链模块，并结合其他工具对代码进行处理，最终将其转换和打包为合适的格式供浏览器使用。
 
 ### React
 
-React 是一个用于构建用户界面的 JavaScript 库，由 Facebook 于 2013 年 5 月开源，一经开源，广受开源社区的好评。React 能够如此受到欢迎，和它拥有如下的的特点是密不可分的：
+React 是由 Facebook 于 2013 年 5 月开源的 JavaScript 库，主要用于网页 UI 的构建。一经开源，广受开源社区的好评。React 能够如此受到欢迎，和它拥有如下的的特点是密不可分的：
 
 1. **高效** - 通过使用虚拟 DOM，能够减少不必要的的交互，从而提高性能。
 1. **灵活** - 可以与已知的库和框架很好的配合。
@@ -107,9 +107,7 @@ var element = {
 
 ### Redux
 
-React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用。为了管理 React 的数据，Facebook 推出了 Flux 框架，2015年 Redux 出现，将 Flux 和函数式编程的方法合二为一，成为了一时前端框架的热门。Redux 的出现就是为了解决复杂场景下的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
-
-因为在 React 中数组是从上向下单向的，子节点的数据只能从它的父节点上获取，但是如果节点的嵌套层次非常深，那么如果子节点要获取数据就要通过层层传递来获取，这样就导致了重复的编码工作，也不利于修改。而 Redux 的出现就是为了解决这个问题。
+React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用。因为在 React 中数组是从上向下单向的，子节点的数据只能从它的父节点上获取，但是如果节点的嵌套层次非常深，那么如果子节点要获取数据就要通过层层传递来获取，这样就导致了重复的编码工作，也不利于修改。为了管理 React 的数据，Facebook 推出了 Flux 框架，2015年 Redux 出现，将 Flux 和函数式编程的方法合二为一，成为了一时前端框架的热门。Redux 的出现就是为了解决复杂场景下的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
 
 想要理解 Redux 先要理解这四个名称： store、action、reducer、dispatch
 
@@ -227,7 +225,7 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 
 最开始的时候，网站的图标都是用 png/jpg 格式的图片来展示的，但是随着项目逐渐变大，慢慢的会发现网络请求中的图片资源的请求量占了很大一部分，减少图片资源请求量就变得至关重要了。为了解决这个问题，孕育而生的就是雪碧图。具体做法是将多个图片放在一张图片上，然后通过 background-position 定位到特定位置的图片来使用单独的图片资源。这样做虽然解决了图片细碎的麻烦，但是却依然存在难以维护的困惑。每次新增图标都要重新生成，既不能利用缓存也不太方便。
 
-之后又出现了使用字体库来实现页面图标的，例如 Font Awesome，虽然使用起来非常的方便，但是如果要拓展也是很麻烦的。这时是阿里巴巴的图标库 fonticon 就出现了，并且可以将自己的图标上传供大家使用。iconfont 主要有三种使用方式，第一种是 Unicode、其次是 Font-class、最后是 Symbol。它们的具体区别如下：
+之后又出现了使用字体库来实现页面图标的，例如 material-design-icons，虽然可以方便使用，但是如果要拓展图标库却很麻烦的。这时是阿里巴巴的图标库 fonticon 就出现了，并且可以将自己的图标上传供大家使用。iconfont 主要有三种使用方式，第一种是 Unicode、其次是 Font-class、最后是 Symbol。它们的具体区别如下：
 
 |方式|兼容性|调整大小颜色|多色图标|使用格式|
 |---|---|---|---|---|
@@ -235,7 +233,7 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-loader babel-
 |Font-class|ie6+|√|×|`<i class="iconfont icon-xxx"></i>`|
 |Symbol|ie9+|√|√|`<svg class="icon" aria-hidden="true"><use xlink:href="#icon-xxx"></use></svg>`|
 
-随着 ie 浏览器逐渐退出历史舞台，使得我们不必要再去考虑兼容这样古董级的浏览器。
+随着一些老旧的浏览器逐渐被淘汰，使得我们不必要再去考虑这些繁杂兼容性问题。
 
 Symbol 在内部使用的是 svg 图标，因此有如下优点：
 
