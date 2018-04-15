@@ -45,11 +45,9 @@ Keywords: React, Redux, Webpack, Front End Development, Website Optimization
 
 ## 第二章：相关技术分析
 
-本文主要涉及到的技术为 React、Redux 和 Webpack。其中，React 主要的作用是用来构建组件化的 UI；Redux是一个应用数据流框架，用来存储和维护整个应用的状态；而 Webpack 是用来对项目依赖进行分析打包，它可以分析项目的结构，找到 JavaScript 及相关生态链模块，并结合其他工具对代码进行处理，最终将其转换和打包为合适的格式供浏览器使用。
-
 ### React
 
-React 是由 Facebook 于 2013 年 5 月开源的 JavaScript 库，主要用于网页 UI 的构建。一经开源，广受开源社区的好评。React 能够如此受到欢迎，和它拥有如下的的特点是密不可分的：
+React 是由 Facebook 于 2013年5月开源的 JavaScript 库，主要用于网页 UI 的构建。一经开源便饱受好评。React 能够如此受到欢迎，和它拥有如下的的特点是密不可分的：
 
 1. **高效** - 通过使用虚拟 DOM，能够减少不必要的的交互，从而提高性能。
 1. **灵活** - 可以与已知的库和框架很好的配合。
@@ -71,7 +69,7 @@ console.log(arr.join(' '))
 [align]: [title]: [lang]: [translate]:true [dir]: [dataset]:[object DOMStringMap] [hidden]:false [tabIndex]:-1 [accessKey]: [draggable]:false [spellcheck]:true [contentEditable]:inherit [isContentEditable]:false [offsetParent]:null [offsetTop]:0 [offsetLeft]:0 [offsetWidth]:0 [offsetHeight]:0 [style]:[object CSSStyleDeclaration] [innerText]: [outerText]: [onabort]:null [onblur]:null [oncancel]:null [oncanplay]:null [oncanplaythrough]:null [onchange]:null [onclick]:null [onclose]:null [oncontextmenu]:null [oncuechange]:null [ondblclick]:null [ondrag]:null [ondragend]:null [ondragenter]:null [ondragleave]:null [ondragover]:null [ondragstart]:null [ondrop]:null [ondurationchange]:null [onemptied]....
 ```
 
-然而这不过是 DOM 对象第一层的属性，真正的 DOM 元素是非常庞大的。而且在操作 DOM 的时候要非常的小心，不然会导致整个页面重排，这对网站的性能有非常大的影响。
+上面所展示的仅仅是一个空 div 对象第一层遍历的 1/10，真正的对象如果全部展开是非常庞大的。所以我们在操作 DOM 的时候要非常的小心，不然会导致整个页面重排，这对网站的性能有非常大的影响。
 
 我们可以用一个简单的 JavaScript 对象来表示 DOM 节点，这样我们只要操作 JavaScript 对象就可以模拟 DOM 上的操作了。
 
@@ -101,13 +99,11 @@ var element = {
 
 <!-- ![code2](./img/code2-nb.png) -->
 
-既然原来的 DOM 树可以用 JavaScript 对象表示，那么反过来也可以用这个 JavaScript 对象来还原 DOM 树。
-
-那么我们就可以用 JavaScript 对象表示 DOM 信息和结构，当状态发生变化的时候，我们可以用新的对象树和旧的对象树进行比较，记录这两棵树的差异。记录下来的不同的就是我们需要最后更新的内容。然后将其应用到真正的 DOM 树上，页面就更新了。这就是虚拟 DOM 算法。
+通过这样我们就能在 JavaScript 对象和真实 DOM 之间互相转换，就可以用 JavaScript 对象表示 DOM 信息和结构，当状态发生变化的时候，我们可以用新的对象树和旧的对象树进行比较，记录这两棵树的差异。记录下来的不同的就是我们需要最后更新的内容。然后将其应用到真正的 DOM 节点上，页面就更新了。
 
 ### Redux
 
-React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用。因为在 React 中数组是从上向下单向的，子节点的数据只能从它的父节点上获取，但是如果节点的嵌套层次非常深，那么如果子节点要获取数据就要通过层层传递来获取，这样就导致了重复的编码工作，也不利于修改。为了管理 React 的数据，Facebook 推出了 Flux 框架，2015年 Redux 出现，将 Flux 和函数式编程的方法合二为一，成为了一时前端框架的热门。Redux 的出现就是为了解决复杂场景下的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
+React 是一个 UI 库，单靠 React 不足以搭建一个功能完备的 web 应用。因为在 React 中数组是从上向下单向的，子节点的数据只能从它的父节点上获取，但是如果节点的嵌套层次非常深，那么如果子节点要获取数据就要通过层层传递来获取，这样就导致了重复的编码工作，也不利于修改。为了管理 React 的数据，Facebook 推出了 Flux 框架，2015年 Redux 出现，将 Flux 和函数式编程的方法合二为一，成为了一时前端框架的热门。Redux 的出现就是为了解决复杂场景下的业务逻辑设计的，如果是简单的业务逻辑，可以完全不使用 Redux。
 
 想要理解 Redux 先要理解这四个名称： store、action、reducer、dispatch
 
@@ -115,7 +111,7 @@ React 是一个 UI 库，单靠 React 不足以搭建一个完整的 web 应用�
 
 * Store 是客户端用来存状态的地方，一个客户端只能有一个单独的 Store。
 * Action 是用来描述一个特定的客户端事件，可以是输入内容，也可以是点击某个按钮。如果 State 发生变化那么 View 也会相应的变化。但是，用户无法直接改变 State，只能操作 View。所以，用户想要改变 State 需要通过一个媒介来完成，那就是 Action，用户每一次请求改变状态都会产生一个相应的 Action。
-* Reducer 是处理 Action 的场所，是一个函数，它接收一个 Action 并且根据当前的 State，返回一个新的 State。
+* Reducer 是处理 Action 的场所，它是一个函数，并且接收一个 Action 作为参数，并且根据当前的 State，返回一个新的 State。
 * Dispatch 是 Reducer 接收 Action 用来更新数据的唯一入口。
 
 所以整个数据流就变成这样：整个的享数据报存在 Store 中，React 根据 Store 和自身的 State 渲染出 View。当用户想更新 Store 中的数据，则要生成相应的 Action，并且回调 store 流出的 dispatch 方法，将 Action 和存在其中的数据传递给 Reducer 。Reducer 接收到 Action 并且根据当前的 State 返回一个新的 State 去更新 Store 中的数据。从而再由 React 更新 View。
@@ -421,10 +417,7 @@ drwxr-xr-x  6 archie  staff   192B  4 12 21:18 font
 
 通过使用 React 进行 UI 构建，然后使用 Redux 来集中管控数据，然后利用 Webpack 对项目的代码和依赖进行分析，提取重复模块，并将浏览器无法识别的资源转换为可识别的格式。通过 babel 将 ES6+ 的代码转换并兼容低版本浏览器；PostCSS 对 css 进行兼容和拓展，并用 CSS-Moudles 来对 css 进行作用域隔离。使用 iconfont 对图标从大小到兼容性进行优化。并在此基础上添加了自动化测试以及持续集成。
 
-经过我们的理论研究和实践测试，我们发现上述的优化方案确实非常有效果，不仅可以在减少开发者开发难度，并且可以同时优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。
-
-项目截图：
-![nusic](./img/music.png)
+经过我们的理论研究和原型测试，我们发现上述的优化方案确实非常有效果。我们可以使用 CSS next 和 ES6+ 的语法进行编程，同时也可以获得非常好的兼容性，最终经过打包后的程序可以减少 50% 以上的大小，网络请求的数量可以从几十个下降到几个，整个的网站的响应速度可以有 3-4 秒的提升。并且用户在网站内进行交互时，可以得到客户端一样的使用体验。整个优化不仅可以在减少开发者开发难度，并且可以同时优化网页的性能和质量，在更小的打包体积下极大提升网站的响应速度和兼容性。
 
 ## 主要参考文献
 
@@ -437,8 +430,6 @@ drwxr-xr-x  6 archie  staff   192B  4 12 21:18 font
 [3] [webpack is a module bundler for modern JavaScript applications.](https://webpack.js.org/) 2018
 
 [4] [The compiler for writing next generation JavaScript](http://babeljs.io/) 2018
-
-[5] [基于Dom Diff算法分析React刷新机制](http://www.cnki.com.cn/Article/CJFDTOTAL-DNZS201718033.htm) 2017
 
 <!-- https://carbon.now.sh/?bg=rgba(255,255,255,0)&t=base16-dark&l=htmlmixed&ds=false&wc=true&wa=false&pv=0px&ph=0px&ln=true&code= -->
 
